@@ -86,17 +86,11 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-center text-xl font-bold mb-8">{t('functionalityTitle')}</h2>
           <div className="flex flex-wrap justify-center gap-3">
-            {language === 'en' ? (
-              t('functionalityPills') && Array.isArray(translations.en.functionalityPills) && 
-              translations.en.functionalityPills.map((pill, index) => (
+            {/* Use the t function to get the array of strings, and then map over it */}
+            {Array.isArray(t('functionalityPills')) && 
+              (t('functionalityPills') as string[]).map((pill, index) => (
                 <FunctionalityPill key={index} text={pill} />
-              ))
-            ) : (
-              t('functionalityPills') && Array.isArray(translations.es.functionalityPills) && 
-              translations.es.functionalityPills.map((pill, index) => (
-                <FunctionalityPill key={index} text={pill} />
-              ))
-            )}
+              ))}
           </div>
         </div>
       </section>
@@ -106,25 +100,16 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-center text-xl font-bold mb-8">{t('benefitsTitle')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {language === 'en' ? (
-              translations.en.benefitBoxes.map((benefit, index) => (
+            {/* Use the t function to get the array of objects, and then map over it */}
+            {Array.isArray(t('benefitBoxes')) && 
+              (t('benefitBoxes') as {title: string, description: string}[]).map((benefit, index) => (
                 <BenefitBox 
                   key={index}
                   title={benefit.title} 
                   description={benefit.description}
-                  icon={["clock", "productivity", "brain", "users", "dollar", "chart"][index]}
+                  icon={["clock", "productivity", "brain", "users", "dollar", "chart"][index] as "clock" | "productivity" | "brain" | "users" | "dollar" | "chart"}
                 />
-              ))
-            ) : (
-              translations.es.benefitBoxes.map((benefit, index) => (
-                <BenefitBox 
-                  key={index}
-                  title={benefit.title} 
-                  description={benefit.description}
-                  icon={["clock", "productivity", "brain", "users", "dollar", "chart"][index]}
-                />
-              ))
-            )}
+              ))}
           </div>
         </div>
       </section>

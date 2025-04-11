@@ -132,12 +132,15 @@ const translations = {
 };
 
 type Language = 'en' | 'es';
-type TranslationKeys = keyof typeof translations.en;
+type TranslationKey = keyof typeof translations.en;
+
+// Define a union type for possible return values from the translation function
+type TranslationValue = string | string[] | { title: string; description: string }[];
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: TranslationKeys) => string;
+  t: (key: TranslationKey) => TranslationValue;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -145,8 +148,8 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('en');
 
-  const t = (key: TranslationKeys): string => {
-    return translations[language][key] || key;
+  const t = (key: TranslationKey): TranslationValue => {
+    return translations[language][key];
   };
 
   return (
