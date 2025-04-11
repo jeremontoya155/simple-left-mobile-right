@@ -1,6 +1,28 @@
 
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
+// Define the shape of our translation keys
+type TranslationKey = 
+  | 'home' 
+  | 'about' 
+  | 'products' 
+  | 'contact' 
+  | 'heroTitle' 
+  | 'heroDescription' 
+  | 'moreInfo' 
+  | 'channelsTitle' 
+  | 'softwareTitle' 
+  | 'softwareDescription' 
+  | 'functionalityTitle' 
+  | 'functionalityPills' 
+  | 'benefitsTitle' 
+  | 'benefitBoxes' 
+  | 'contactUs' 
+  | 'forAnyQuestion' 
+  | 'ourInstagram' 
+  | 'ourEmail' 
+  | 'location';
+
 // Translation data
 const translations = {
   en: {
@@ -132,7 +154,6 @@ const translations = {
 };
 
 type Language = 'en' | 'es';
-type TranslationKey = keyof typeof translations.en;
 
 // Define a union type for possible return values from the translation function
 type TranslationValue = string | string[] | { title: string; description: string }[];
