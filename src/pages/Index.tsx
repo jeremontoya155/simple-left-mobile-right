@@ -148,8 +148,8 @@ const Index = () => {
       <section className="bg-gradient-to-br from-emerald-700 to-teal-800 text-white py-16 px-4">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
           <div className="max-w-xl">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('welcomeHunter') as string}</h1>
-            <p className="text-xl mb-4">{t('yourGoalsOurTarget') as string}</p>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">Bienvenido a Hunter, donde no esperamos oportunidades — las creamos y las cazamos.</h1>
+            <p className="text-xl mb-4">Tus metas, nuestro blanco.</p>
             <p className="mb-8 text-emerald-100">{t('heroDescription') as string}</p>
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
               <Button 
@@ -181,7 +181,8 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">{t('whatIsHunterAI') as string}</h2>
           <p className="text-center max-w-3xl mx-auto mb-12 text-gray-700">
-            {t('whatIsHunterAIDesc') as string}
+            Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads en múlticanal, sin interrupcion
+            para empresas o marcas personales que buscan atraer clientes de manera sostenible y escalable
           </p>
           <div className="flex justify-center space-x-8 md:space-x-12 flex-wrap">
             <div className="border-2 border-blue-500 p-4 rounded-lg w-14 h-14 md:w-16 md:h-16 flex items-center justify-center m-2">
@@ -314,7 +315,7 @@ const Index = () => {
       {/* Final CTA Section */}
       <section className="py-16 px-4 bg-emerald-700 text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('finalCTA') as string}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Estás a un clic de tu próxima cacería.</h2>
           <Button 
             className="bg-white text-emerald-700 hover:bg-emerald-100 px-8 py-3 text-lg"
             onClick={() => handleEmailRequest("Start Now Request from Hunter AI Website")}
@@ -330,7 +331,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <Logo className="mb-4" />
-              <p className="mb-4 text-gray-400 max-w-xs">{t('whatIsHunterAIDesc') as string}</p>
+              <p className="mb-4 text-gray-400 max-w-xs">Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads.</p>
             </div>
             
             <div>
