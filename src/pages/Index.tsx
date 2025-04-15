@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { 
   Facebook, 
@@ -48,10 +47,26 @@ const Index = () => {
   const isMobile = useIsMobile();
   
   const steps = [
-    { icon: UserPlus, title: t('step1') as string },
-    { icon: Users, title: t('step2') as string },
-    { icon: Search, title: t('step3') as string },
-    { icon: CheckCircle, title: t('step4') as string }
+    { 
+      icon: UserPlus, 
+      title: t('step1') as string,
+      description: "Define your target audience and upload your existing customer profiles to start."
+    },
+    { 
+      icon: Users, 
+      title: t('step2') as string,
+      description: "Our AI creates an avatar that represents your ideal customer persona."
+    },
+    { 
+      icon: Search, 
+      title: t('step3') as string,
+      description: "We search through multiple platforms to find and contact matching profiles."
+    },
+    { 
+      icon: CheckCircle, 
+      title: t('step4') as string,
+      description: "Qualified leads are automatically scored and referred to your team."
+    }
   ];
   
   const benefits = [
@@ -195,25 +210,17 @@ const Index = () => {
           <p className="text-center max-w-3xl mx-auto mb-12 text-gray-700">
             Hunter AI simplifies your client acquisition process into four simple steps. Our AI-powered system handles everything from profile analysis to automatic qualification.
           </p>
-          <div className="relative py-8">
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-2 bg-emerald-200 -translate-y-1/2 z-0"></div>
-            <div className="flex flex-col md:flex-row justify-between items-center md:items-start z-10 relative">
-              {steps.map((step, index) => (
-                <div key={index} className="mb-10 md:mb-0 w-full md:w-auto px-4">
-                  <Step 
-                    icon={step.icon} 
-                    title={step.title} 
-                    stepNumber={index + 1}
-                  />
-                  <p className="text-center text-gray-600 mt-4 max-w-[180px] mx-auto text-sm">
-                    {index === 0 && "Define your target audience and upload your existing customer profiles to start."}
-                    {index === 1 && "Our AI creates an avatar that represents your ideal customer persona."}
-                    {index === 2 && "We search through multiple platforms to find and contact matching profiles."}
-                    {index === 3 && "Qualified leads are automatically scored and referred to your team."}
-                  </p>
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-start z-10 relative mb-16">
+            {steps.map((step, index) => (
+              <div key={index} className="mb-10 md:mb-0 w-full md:w-auto px-4">
+                <Step 
+                  icon={step.icon} 
+                  title={step.title} 
+                  stepNumber={index + 1}
+                  description={step.description}
+                />
+              </div>
+            ))}
           </div>
           <div className="mt-10 text-center">
             <img 
