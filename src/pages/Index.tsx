@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { 
   Facebook, 
@@ -69,6 +70,12 @@ const Index = () => {
     </>
   );
   
+  const handleEmailRequest = (subject: string) => {
+    const email = "hunter.iogonzalo@gmail.com";
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+    window.location.href = mailtoLink;
+  };
+  
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navbar */}
@@ -89,9 +96,12 @@ const Index = () => {
                   <SheetContent side="right" className="bg-emerald-700 text-white">
                     <div className="flex flex-col space-y-6 mt-10">
                       <NavLinks />
-                      <a href="#contact" className="bg-white text-emerald-700 px-4 py-2 rounded font-medium inline-block text-center mt-4">
+                      <Button
+                        className="bg-white text-emerald-700 hover:bg-emerald-100"
+                        onClick={() => handleEmailRequest("Demo Request from Hunter AI Website")}
+                      >
                         {t('requestDemo') as string}
-                      </a>
+                      </Button>
                     </div>
                   </SheetContent>
                 </Sheet>
@@ -107,9 +117,12 @@ const Index = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <LanguageSwitcher />
-                <a href="#contact" className="bg-white text-emerald-700 px-4 py-2 rounded font-medium hover:bg-emerald-100 transition-colors">
+                <Button 
+                  className="bg-white text-emerald-700 hover:bg-emerald-100"
+                  onClick={() => handleEmailRequest("Demo Request from Hunter AI Website")}
+                >
                   {t('requestDemo') as string}
-                </a>
+                </Button>
               </div>
             </>
           )}
@@ -124,10 +137,16 @@ const Index = () => {
             <p className="text-xl mb-4">{t('yourGoalsOurTarget') as string}</p>
             <p className="mb-8 text-emerald-100">{t('heroDescription') as string}</p>
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-              <Button className="bg-white text-emerald-700 hover:bg-emerald-100">
+              <Button 
+                className="bg-white text-emerald-700 hover:bg-emerald-100"
+                onClick={() => handleEmailRequest("Try Hunter Now Request")}
+              >
                 {t('tryHunterNow') as string}
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-emerald-600">
+              <Button 
+                className="bg-white text-emerald-700 hover:bg-emerald-100"
+                onClick={() => handleEmailRequest("Free Demo Request from Hunter AI Website")}
+              >
                 {t('requestFreeDemo') as string}
               </Button>
             </div>
@@ -170,22 +189,38 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">{t('howItWorks') as string}</h2>
-          <div className="relative">
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-emerald-200 -translate-y-1/2 z-0"></div>
+          <p className="text-center max-w-3xl mx-auto mb-12 text-gray-700">
+            Hunter AI simplifies your client acquisition process into four simple steps. Our AI-powered system handles everything from profile analysis to automatic qualification.
+          </p>
+          <div className="relative py-8">
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-2 bg-emerald-200 -translate-y-1/2 z-0"></div>
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start z-10 relative">
               {steps.map((step, index) => (
-                <div key={index} className="mb-8 md:mb-0">
+                <div key={index} className="mb-10 md:mb-0 w-full md:w-auto px-4">
                   <Step 
                     icon={step.icon} 
                     title={step.title} 
                     stepNumber={index + 1}
                   />
+                  <p className="text-center text-gray-600 mt-4 max-w-[180px] mx-auto text-sm">
+                    {index === 0 && "Define your target audience and upload your existing customer profiles to start."}
+                    {index === 1 && "Our AI creates an avatar that represents your ideal customer persona."}
+                    {index === 2 && "We search through multiple platforms to find and contact matching profiles."}
+                    {index === 3 && "Qualified leads are automatically scored and referred to your team."}
+                  </p>
                 </div>
               ))}
             </div>
+          </div>
+          <div className="mt-10 text-center">
+            <img 
+              src="/lovable-uploads/9a0bbd3b-4258-463c-9099-e0766668d71c.png" 
+              alt="Hunter AI Process" 
+              className="max-w-full mx-auto"
+            />
           </div>
         </div>
       </section>
@@ -240,6 +275,7 @@ const Index = () => {
               price={(t('basicPlan') as any).price}
               features={(t('basicPlan') as any).features}
               buttonText={t('choosePlan') as string}
+              onClick={() => handleEmailRequest(`Subscription Request: ${(t('basicPlan') as any).title} Plan`)}
             />
             <PlanCard
               title={(t('professionalPlan') as any).title}
@@ -247,12 +283,14 @@ const Index = () => {
               features={(t('professionalPlan') as any).features}
               buttonText={t('choosePlan') as string}
               isPrimary={true}
+              onClick={() => handleEmailRequest(`Subscription Request: ${(t('professionalPlan') as any).title} Plan`)}
             />
             <PlanCard
               title={(t('businessPlan') as any).title}
               price={(t('businessPlan') as any).price}
               features={(t('businessPlan') as any).features}
               buttonText={t('choosePlan') as string}
+              onClick={() => handleEmailRequest(`Subscription Request: ${(t('businessPlan') as any).title} Plan`)}
             />
           </div>
         </div>
@@ -270,7 +308,10 @@ const Index = () => {
       <section className="py-16 px-4 bg-emerald-700 text-white">
         <div className="container mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('finalCTA') as string}</h2>
-          <Button className="bg-white text-emerald-700 hover:bg-emerald-100 px-8 py-3 text-lg">
+          <Button 
+            className="bg-white text-emerald-700 hover:bg-emerald-100 px-8 py-3 text-lg"
+            onClick={() => handleEmailRequest("Start Now Request from Hunter AI Website")}
+          >
             {t('startNow') as string}
           </Button>
         </div>
@@ -290,7 +331,7 @@ const Index = () => {
               <div className="space-y-2">
                 <div className="flex items-start">
                   <Mail className="w-5 h-5 mr-3 mt-1 text-emerald-500" />
-                  <p>contacto@hunteri.com</p>
+                  <p>hunter.iogonzalo@gmail.com</p>
                 </div>
                 <div className="flex items-start">
                   <Phone className="w-5 h-5 mr-3 mt-1 text-emerald-500" />
