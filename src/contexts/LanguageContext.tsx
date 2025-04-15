@@ -72,7 +72,7 @@ const translations = {
     
     // Hero section
     heroTitle: "HUNTER ASSISTANTS",
-    heroDescription: "HUNTER I.S, a tool designed with innovative technology and complex algorithms that automate every step of the prospecting process, from identifying potential customers to contact and follow-up. Simplify your strategy, save time and effort in growing your brand.",
+    heroDescription: "We boost customer acquisition and conversion with artificial intelligence, automating multi-channel prospecting and lead management without interruption. For businesses or personal brands looking to attract customers in a sustainable and scalable way.",
     welcomeHunter: "Welcome to Hunter, where we don't wait for opportunities — we create and hunt them.",
     yourGoalsOurTarget: "Your goals, our target.",
     tryHunterNow: "Try Hunter Now",
@@ -246,7 +246,7 @@ const translations = {
     
     // Hero section
     heroTitle: "HUNTER ASSISTANTS",
-    heroDescription: "HUNTER I.S, una herramienta diseñada con tecnología innovadora y algoritmos complejos que automatizan cada paso del proceso de prospección, desde la identificación de posibles clientes hasta el contacto y seguimiento. Simplifica tu estrategia, ahorra tiempo y esfuerzo en hacer crecer tu marca.",
+    heroDescription: " Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads en múlticanal, sin interrupción. Para empresas o marcas personales que buscan atraer clientes de manera sostenible y escalable.",
     welcomeHunter: "Bienvenido a Hunter, donde no esperamos oportunidades — las creamos y las cazamos.",
     yourGoalsOurTarget: "Tus metas, nuestro blanco.",
     tryHunterNow: "Probar Hunter ahora",
