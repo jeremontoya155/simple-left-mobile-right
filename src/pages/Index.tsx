@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { 
   Facebook, 
@@ -11,7 +12,6 @@ import {
   CheckCircle,
   MessageSquare,
   Layers,
-  Zap,
   Database,
   Share2,
   Milestone,
