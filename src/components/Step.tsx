@@ -6,10 +6,9 @@ interface StepProps {
   icon: LucideIcon;
   title: string;
   stepNumber: number;
-  description: string;
 }
 
-const Step = ({ icon: Icon, title, stepNumber, description }: StepProps) => {
+const Step = ({ icon: Icon, title, stepNumber }: StepProps) => {
   return (
     <div className="flex flex-col items-center">
       <div className="relative">
@@ -20,8 +19,7 @@ const Step = ({ icon: Icon, title, stepNumber, description }: StepProps) => {
           {stepNumber}
         </div>
       </div>
-      <p className="text-sm font-medium text-center max-w-[120px] mb-2">{title}</p>
-      <p className="text-center text-gray-600 max-w-[180px] mx-auto text-sm">{description}</p>
+      <p className="text-sm font-medium text-center max-w-[120px]">{title}</p>
     </div>
   );
 };

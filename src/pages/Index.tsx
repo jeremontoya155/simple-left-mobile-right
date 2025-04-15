@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { 
   Facebook, 
@@ -12,6 +11,7 @@ import {
   CheckCircle,
   MessageSquare,
   Layers,
+  Zap,
   Database,
   Share2,
   Milestone,
@@ -47,26 +47,10 @@ const Index = () => {
   const isMobile = useIsMobile();
   
   const steps = [
-    { 
-      icon: UserPlus, 
-      title: t('step1') as string,
-      description: "Define your target audience and upload your existing customer profiles to start."
-    },
-    { 
-      icon: Users, 
-      title: t('step2') as string,
-      description: "Our AI creates an avatar that represents your ideal customer persona."
-    },
-    { 
-      icon: Search, 
-      title: t('step3') as string,
-      description: "We search through multiple platforms to find and contact matching profiles."
-    },
-    { 
-      icon: CheckCircle, 
-      title: t('step4') as string,
-      description: "Qualified leads are automatically scored and referred to your team."
-    }
+    { icon: UserPlus, title: t('step1') as string },
+    { icon: Users, title: t('step2') as string },
+    { icon: Search, title: t('step3') as string },
+    { icon: CheckCircle, title: t('step4') as string }
   ];
   
   const benefits = [
@@ -84,12 +68,6 @@ const Index = () => {
       <a href="#contact" className="text-white font-medium hover:text-emerald-200 transition-colors">{t('contact') as string}</a>
     </>
   );
-  
-  const handleEmailRequest = (subject: string) => {
-    const email = "hunter.iogonzalo@gmail.com";
-    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
-    window.location.href = mailtoLink;
-  };
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -111,12 +89,9 @@ const Index = () => {
                   <SheetContent side="right" className="bg-emerald-700 text-white">
                     <div className="flex flex-col space-y-6 mt-10">
                       <NavLinks />
-                      <Button
-                        className="bg-white text-emerald-700 hover:bg-emerald-100"
-                        onClick={() => handleEmailRequest("Demo Request from Hunter AI Website")}
-                      >
+                      <a href="#contact" className="bg-white text-emerald-700 px-4 py-2 rounded font-medium inline-block text-center mt-4">
                         {t('requestDemo') as string}
-                      </Button>
+                      </a>
                     </div>
                   </SheetContent>
                 </Sheet>
@@ -132,12 +107,9 @@ const Index = () => {
               </div>
               <div className="flex items-center space-x-4">
                 <LanguageSwitcher />
-                <Button 
-                  className="bg-white text-emerald-700 hover:bg-emerald-100"
-                  onClick={() => handleEmailRequest("Demo Request from Hunter AI Website")}
-                >
+                <a href="#contact" className="bg-white text-emerald-700 px-4 py-2 rounded font-medium hover:bg-emerald-100 transition-colors">
                   {t('requestDemo') as string}
-                </Button>
+                </a>
               </div>
             </>
           )}
@@ -148,20 +120,14 @@ const Index = () => {
       <section className="bg-gradient-to-br from-emerald-700 to-teal-800 text-white py-16 px-4">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
           <div className="max-w-xl">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">Bienvenido a Hunter, donde no esperamos oportunidades — las creamos y las cazamos.</h1>
-            <p className="text-xl mb-4">Tus metas, nuestro blanco.</p>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('welcomeHunter') as string}</h1>
+            <p className="text-xl mb-4">{t('yourGoalsOurTarget') as string}</p>
             <p className="mb-8 text-emerald-100">{t('heroDescription') as string}</p>
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-              <Button 
-                className="bg-white text-emerald-700 hover:bg-emerald-100"
-                onClick={() => handleEmailRequest("Try Hunter Now Request")}
-              >
+              <Button className="bg-white text-emerald-700 hover:bg-emerald-100">
                 {t('tryHunterNow') as string}
               </Button>
-              <Button 
-                className="bg-white text-emerald-700 hover:bg-emerald-100"
-                onClick={() => handleEmailRequest("Free Demo Request from Hunter AI Website")}
-              >
+              <Button variant="outline" className="border-white text-white hover:bg-emerald-600">
                 {t('requestFreeDemo') as string}
               </Button>
             </div>
@@ -181,8 +147,7 @@ const Index = () => {
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">{t('whatIsHunterAI') as string}</h2>
           <p className="text-center max-w-3xl mx-auto mb-12 text-gray-700">
-            Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads en múlticanal, sin interrupcion
-            para empresas o marcas personales que buscan atraer clientes de manera sostenible y escalable
+            {t('whatIsHunterAIDesc') as string}
           </p>
           <div className="flex justify-center space-x-8 md:space-x-12 flex-wrap">
             <div className="border-2 border-blue-500 p-4 rounded-lg w-14 h-14 md:w-16 md:h-16 flex items-center justify-center m-2">
@@ -205,30 +170,22 @@ const Index = () => {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">{t('howItWorks') as string}</h2>
-          <p className="text-center max-w-3xl mx-auto mb-12 text-gray-700">
-            Hunter AI simplifies your client acquisition process into four simple steps. Our AI-powered system handles everything from profile analysis to automatic qualification.
-          </p>
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-start z-10 relative mb-16">
-            {steps.map((step, index) => (
-              <div key={index} className="mb-10 md:mb-0 w-full md:w-auto px-4">
-                <Step 
-                  icon={step.icon} 
-                  title={step.title} 
-                  stepNumber={index + 1}
-                  description={step.description}
-                />
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <img 
-              src="/lovable-uploads/9a0bbd3b-4258-463c-9099-e0766668d71c.png" 
-              alt="Hunter AI Process" 
-              className="max-w-full mx-auto"
-            />
+          <div className="relative">
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-emerald-200 -translate-y-1/2 z-0"></div>
+            <div className="flex flex-col md:flex-row justify-between items-center md:items-start z-10 relative">
+              {steps.map((step, index) => (
+                <div key={index} className="mb-8 md:mb-0">
+                  <Step 
+                    icon={step.icon} 
+                    title={step.title} 
+                    stepNumber={index + 1}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -283,7 +240,6 @@ const Index = () => {
               price={(t('basicPlan') as any).price}
               features={(t('basicPlan') as any).features}
               buttonText={t('choosePlan') as string}
-              onClick={() => handleEmailRequest(`Subscription Request: ${(t('basicPlan') as any).title} Plan`)}
             />
             <PlanCard
               title={(t('professionalPlan') as any).title}
@@ -291,14 +247,12 @@ const Index = () => {
               features={(t('professionalPlan') as any).features}
               buttonText={t('choosePlan') as string}
               isPrimary={true}
-              onClick={() => handleEmailRequest(`Subscription Request: ${(t('professionalPlan') as any).title} Plan`)}
             />
             <PlanCard
               title={(t('businessPlan') as any).title}
               price={(t('businessPlan') as any).price}
               features={(t('businessPlan') as any).features}
               buttonText={t('choosePlan') as string}
-              onClick={() => handleEmailRequest(`Subscription Request: ${(t('businessPlan') as any).title} Plan`)}
             />
           </div>
         </div>
@@ -315,11 +269,8 @@ const Index = () => {
       {/* Final CTA Section */}
       <section className="py-16 px-4 bg-emerald-700 text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">Estás a un clic de tu próxima cacería.</h2>
-          <Button 
-            className="bg-white text-emerald-700 hover:bg-emerald-100 px-8 py-3 text-lg"
-            onClick={() => handleEmailRequest("Start Now Request from Hunter AI Website")}
-          >
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">{t('finalCTA') as string}</h2>
+          <Button className="bg-white text-emerald-700 hover:bg-emerald-100 px-8 py-3 text-lg">
             {t('startNow') as string}
           </Button>
         </div>
@@ -331,7 +282,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <Logo className="mb-4" />
-              <p className="mb-4 text-gray-400 max-w-xs">Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads.</p>
+              <p className="mb-4 text-gray-400 max-w-xs">{t('whatIsHunterAIDesc') as string}</p>
             </div>
             
             <div>
@@ -339,7 +290,7 @@ const Index = () => {
               <div className="space-y-2">
                 <div className="flex items-start">
                   <Mail className="w-5 h-5 mr-3 mt-1 text-emerald-500" />
-                  <p>hunter.iogonzalo@gmail.com</p>
+                  <p>contacto@hunteri.com</p>
                 </div>
                 <div className="flex items-start">
                   <Phone className="w-5 h-5 mr-3 mt-1 text-emerald-500" />
