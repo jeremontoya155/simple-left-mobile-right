@@ -36,7 +36,6 @@ import {
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Logo from "@/components/Logo";
-import Step from "@/components/Step";
 import BenefitCard from "@/components/BenefitCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import PlanCard from "@/components/PlanCard";
@@ -46,13 +45,6 @@ const Index = () => {
   const { t, language } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
-  
-  const steps = [
-    { icon: UserPlus, title: t('step1') as string },
-    { icon: Users, title: t('step2') as string },
-    { icon: Search, title: t('step3') as string },
-    { icon: CheckCircle, title: t('step4') as string }
-  ];
   
   const benefits = [
     { icon: MessageSquare, title: t('benefit1') as string },
@@ -184,43 +176,6 @@ const Index = () => {
             <div className="border-2 border-blue-500 p-4 rounded-lg w-14 h-14 md:w-16 md:h-16 flex items-center justify-center m-2">
               <MessageCircle className="text-green-500 w-8 h-8 md:w-10 md:h-10" />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">{t('howItWorks') as string}</h2>
-          <p className="text-center max-w-3xl mx-auto mb-12 text-gray-700">
-            Hunter AI simplifies your client acquisition process into four simple steps. Our AI-powered system handles everything from profile analysis to automatic qualification.
-          </p>
-          <div className="relative py-8">
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-2 bg-emerald-200 -translate-y-1/2 z-0"></div>
-            <div className="flex flex-col md:flex-row justify-between items-center md:items-start z-10 relative">
-              {steps.map((step, index) => (
-                <div key={index} className="mb-10 md:mb-0 w-full md:w-auto px-4">
-                  <Step 
-                    icon={step.icon} 
-                    title={step.title} 
-                    stepNumber={index + 1}
-                  />
-                  <p className="text-center text-gray-600 mt-4 max-w-[180px] mx-auto text-sm">
-                    {index === 0 && "Define your target audience and upload your existing customer profiles to start."}
-                    {index === 1 && "Our AI creates an avatar that represents your ideal customer persona."}
-                    {index === 2 && "We search through multiple platforms to find and contact matching profiles."}
-                    {index === 3 && "Qualified leads are automatically scored and referred to your team."}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-10 text-center">
-            <img 
-              src="/lovable-uploads/9a0bbd3b-4258-463c-9099-e0766668d71c.png" 
-              alt="Hunter AI Process" 
-              className="max-w-full mx-auto"
-            />
           </div>
         </div>
       </section>
