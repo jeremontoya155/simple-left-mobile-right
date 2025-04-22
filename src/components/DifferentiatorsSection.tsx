@@ -1,33 +1,106 @@
 
 import React from "react";
-import VideoTestimonials from "./VideoTestimonials";
-import { CheckCircle } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const differentiators = [
-  "Automatización verdadera sin intervención manual.",
-  "Manejo seguro de cuentas múltiples.",
-  "Prospección multicanal real y CRM unificado.",
-  "Configuración rápida, sin códigos y en minutos.",
+const differentiatorsData = [
+  {
+    title: {
+      es: "Automatización total",
+      en: "Full automation"
+    },
+    description: {
+      es: "Automatizamos todos los pasos para que solo te concentres en cerrar ventas.",
+      en: "We automate every step so you can focus on closing deals."
+    },
+    icon: "zap"
+  },
+  {
+    title: {
+      es: "CRM integrado y seguimiento",
+      en: "Integrated CRM & tracking"
+    },
+    description: {
+      es: "Gestiona tus prospectos desde una sola plataforma. Todo tu funnel en un solo lugar.",
+      en: "Manage your prospects from one platform. All your funnel in one place."
+    },
+    icon: "database"
+  },
+  {
+    title: {
+      es: "Personalización y escalabilidad",
+      en: "Personalization & scalability"
+    },
+    description: {
+      es: "Configura estrategias que crecen contigo y se adaptan a cada campaña.",
+      en: "Set up strategies that grow with you and adapt to each campaign."
+    },
+    icon: "layers"
+  },
+  {
+    title: {
+      es: "Atención personalizada",
+      en: "Personalized support"
+    },
+    description: {
+      es: "Acompañamiento 1-a-1 para que obtengas el máximo de la herramienta.",
+      en: "1-on-1 guidance to get the most from the tool."
+    },
+    icon: "message-circle"
+  }
 ];
 
-const DifferentiatorsSection = () => (
-  <section className="bg-white py-16 px-4">
-    <div className="container mx-auto text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8">¿Por qué Hunter AI?</h2>
-      <p className="mb-10 text-gray-700 max-w-2xl mx-auto text-lg">
-        Nos diferenciamos por nuestra tecnología propietaria, la facilidad de uso y la capacidad de escalar tu captación de leads en todos los canales digitales.
-      </p>
-      <div className="mb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {differentiators.map((d, i) => (
-          <div key={i} className="bg-emerald-50 border border-emerald-200 px-6 py-8 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start">
-            <CheckCircle className="w-6 h-6 text-emerald-600 mr-3 flex-shrink-0 mt-1" />
-            <p className="text-left">{d}</p>
-          </div>
-        ))}
+const getIcon = (icon: string) => {
+  switch (icon) {
+    case "zap":
+      return <span className="h-9 w-9 rounded-full bg-emerald-50 flex items-center justify-center shadow mr-1"><svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="13 2 13 9 19 9" /><polygon points="13 22 4 15 8 15 8 9 16 2 16 15 20 15 20 22 13 22" /></svg></span>;
+    // ... podrías usar lucide-react aquí, pero para simplificar y evitar imports dobles:
+    default:
+      return <span className="h-9 w-9 rounded-full bg-emerald-50 flex items-center justify-center shadow mr-1">★</span>;
+  }
+};
+
+const DifferentiatorsSection = () => {
+  const { language } = useLanguage();
+  const [activeAccordion, setActiveAccordion] = React.useState<number | null>(null);
+
+  return (
+    <section id="differentiators" className="pt-12 pb-8 px-4 bg-white card-gradient">
+      <div className="container mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center text-emerald-800">
+          {language === 'es' ? "¿Qué nos hace diferentes?" : "What makes us different?"}
+        </h2>
+        <div className="max-w-2xl mx-auto flex flex-col gap-4">
+          {differentiatorsData.map((item, idx) => {
+            return (
+              <div
+                key={idx}
+                className={`rounded-xl border border-emerald-200 transition-transform transform bg-white py-3 px-4 shadow hover:scale-105 cursor-pointer duration-200 ${activeAccordion === idx ? "ring-2 ring-emerald-400" : ""}`}
+                onClick={() => setActiveAccordion(activeAccordion === idx ? null : idx)}
+              >
+                <div className="flex items-center gap-4">
+                  {getIcon(item.icon)}
+                  <h3 className="font-bold text-lg flex-1">{item.title[language]}</h3>
+                  <span className="ml-2">
+                    <ChevronRight
+                      className={`transition-transform duration-200 ${activeAccordion === idx ? "rotate-90 text-emerald-500" : "text-gray-400"}`}
+                      size={24}
+                    />
+                  </span>
+                </div>
+                <div
+                  className={`overflow-hidden transition-max-h duration-300 ${activeAccordion === idx ? "max-h-40 mt-3 opacity-100" : "max-h-0 opacity-0"}`}
+                  style={{ transitionProperty: 'max-height, opacity' }}
+                >
+                  <p className="text-gray-700 text-base">{item.description[language]}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <VideoTestimonials />
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default DifferentiatorsSection;
