@@ -128,7 +128,7 @@ const translations = {
         "Basic analytics dashboard",
         "Email support"
       ],
-      price: "$99/month"
+      price: "Contact for pricing"
     },
     professionalPlan: {
       title: "Professional Plan",
@@ -139,7 +139,7 @@ const translations = {
         "Priority email support",
         "Basic CRM features"
       ],
-      price: "$199/month"
+      price: "Contact for pricing"
     },
     businessPlan: {
       title: "Business Plan",
@@ -297,7 +297,7 @@ const translations = {
         "Panel de análisis básico",
         "Soporte por email"
       ],
-      price: "$99/mes"
+      price: "Consultar precio"
     },
     professionalPlan: {
       title: "Plan Profesional",
@@ -308,7 +308,7 @@ const translations = {
         "Soporte prioritario por email",
         "Características básicas de CRM"
       ],
-      price: "$199/mes"
+      price: "Consultar precio"
     },
     businessPlan: {
       title: "Plan Empresarial",

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import HomeHeader from "@/components/HomeHeader";
 import HeroSection from "@/components/HeroSection";
@@ -24,8 +25,10 @@ const Index = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-white/95 via-emerald-50 to-emerald-100">
-      <HomeHeader mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#034732] via-[#f3faf7] to-emerald-100"> {/* Fondo verde oscuro al fondo */}
+      <header className="sticky top-0 z-50">
+        <HomeHeader mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
+      </header>
       <HeroSection />
       <DifferentiatorsSection />
       <IntegrationSection />

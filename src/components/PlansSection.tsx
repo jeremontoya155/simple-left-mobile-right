@@ -7,6 +7,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const PlansSection = ({ handleEmailRequest }: { handleEmailRequest: (subject: string) => void }) => {
   const { language } = useLanguage();
 
+  const basePrice = language === "es" ? "Consultar precio" : "Contact for pricing";
+  const premiumPrice = language === "es" ? "Consultar precio" : "Contact for pricing";
+
   return (
     <section id="plans" className="py-16 px-4 bg-gradient-to-b from-emerald-50 to-white">
       <div className="container mx-auto">
@@ -29,7 +32,7 @@ const PlansSection = ({ handleEmailRequest }: { handleEmailRequest: (subject: st
           />
           <PlanCard
             title={language === 'es' ? "Plan Base" : "Basic Plan"}
-            price={language === 'es' ? "US$99/mes" : "US$99/month"}
+            price={basePrice}
             features={[
               language === 'es' ? "Automatización de 50 mensajes diarios" : "50 automated messages per day",
               language === 'es' ? "Integración con 1 plataforma" : "1 platform integration",
@@ -41,7 +44,7 @@ const PlansSection = ({ handleEmailRequest }: { handleEmailRequest: (subject: st
           />
           <PlanCard
             title={language === 'es' ? "Plan Premium" : "Premium Plan"}
-            price={language === 'es' ? "US$199/mes" : "US$199/month"}
+            price={premiumPrice}
             features={[
               language === 'es' ? "Automatización de 200 mensajes diarios" : "200 automated messages per day",
               language === 'es' ? "Integración con 3 plataformas" : "3 platform integrations",
