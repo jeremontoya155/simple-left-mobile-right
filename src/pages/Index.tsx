@@ -136,9 +136,6 @@ const Index = () => {
       {/* What is Hunter AI? - New section */}
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto text-center">
-          <div className="inline-block bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold mb-8">
-            Porque elegirnos
-          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Que nos hace diferentes</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-gray-700">
             En Hunter, trabajamos de la mano con cada cliente, manteniendo un contacto constante para garantizar
@@ -168,6 +165,7 @@ const Index = () => {
                 icon={step.icon}
                 title={step.title}
                 description={step.description}
+                expandable
               />
             ))}
           </div>
