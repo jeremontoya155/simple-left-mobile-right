@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   Facebook, Instagram, Linkedin, Twitter, Menu, X, Mail, Phone, MapPin, ChevronRight, UserPlus, Users, Search,
@@ -36,14 +37,14 @@ const Index = () => {
   const { t, language } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
-  
+
   const benefits = [
     { icon: MessageCircle, title: t('benefit1') as string },
     { icon: Layers, title: t('benefit2') as string },
     { icon: Database, title: t('benefit3') as string },
     { icon: Share2, title: t('benefit4') as string }
   ];
-  
+
   const handleEmailRequest = (subject: string) => {
     const email = "hunter.iogonzalo@gmail.com";
     const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
@@ -51,25 +52,25 @@ const Index = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-white/95 via-emerald-50 to-emerald-100">
       {/* Navbar */}
-      <header className="bg-white border-b border-gray-100 text-black p-6 sticky top-0 z-10">
+      <header className="bg-white/80 backdrop-blur border-b border-gray-100 text-black p-4 md:p-6 sticky top-0 z-20 shadow-sm transition">
         <div className="container mx-auto flex justify-between items-center">
           <Logo dark={true} className="h-8 md:h-10" />
           <nav className="hidden md:flex space-x-8">
-            <a href="#" className="text-black font-medium hover:text-emerald-700 transition-colors">Inicio</a>
-            <a href="#differentiators" className="text-black font-medium hover:text-emerald-700 transition-colors">¿Por qué Hunter?</a>
-            <a href="#integrations" className="text-black font-medium hover:text-emerald-700 transition-colors">Integraciones</a>
-            <a href="#process" className="text-black font-medium hover:text-emerald-700 transition-colors">Proceso</a>
-            <a href="#plans" className="text-black font-medium hover:text-emerald-700 transition-colors">Planes</a>
+            <a href="#" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Inicio" : "Home"}</a>
+            <a href="#differentiators" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "¿Por qué Hunter?" : "Why Hunter?"}</a>
+            <a href="#integrations" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Integraciones" : "Integrations"}</a>
+            <a href="#process" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Proceso" : "Process"}</a>
+            <a href="#plans" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Planes" : "Plans"}</a>
             <a href="#faq" className="text-black font-medium hover:text-emerald-700 transition-colors">FAQ</a>
             <BlogLink />
-            <a href="/login" className="text-black font-medium hover:text-emerald-700 transition-colors">Accede clientes</a>
+            <a href="/login" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Accede clientes" : "Client login"}</a>
           </nav>
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <LanguageSwitcher />
-            <Button className="bg-black text-white hover:bg-gray-800 font-semibold group">
-              Solicitar Demo
+            <Button className="bg-black text-white hover:bg-gray-800 font-semibold group transition-colors">
+              {language === 'es' ? "Solicitar Demo" : "Request Demo"}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <button
@@ -83,63 +84,65 @@ const Index = () => {
         </div>
         {/* Menú móvil */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white w-full py-4 flex flex-col text-black space-y-4 shadow">
-            <a href="#" className="font-medium">Inicio</a>
-            <a href="#differentiators" className="font-medium">¿Por qué Hunter?</a>
-            <a href="#integrations" className="font-medium">Integraciones</a>
-            <a href="#process" className="font-medium">Proceso</a>
-            <a href="#plans" className="font-medium">Planes</a>
+          <div className="md:hidden bg-white w-full py-4 flex flex-col text-black space-y-4 shadow mt-2 rounded-b-xl">
+            <a href="#" className="font-medium">{language === 'es' ? "Inicio" : "Home"}</a>
+            <a href="#differentiators" className="font-medium">{language === 'es' ? "¿Por qué Hunter?" : "Why Hunter?"}</a>
+            <a href="#integrations" className="font-medium">{language === 'es' ? "Integraciones" : "Integrations"}</a>
+            <a href="#process" className="font-medium">{language === 'es' ? "Proceso" : "Process"}</a>
+            <a href="#plans" className="font-medium">{language === 'es' ? "Planes" : "Plans"}</a>
             <a href="#faq" className="font-medium">FAQ</a>
             <BlogLink />
-            <a href="/login" className="font-medium">Accede clientes</a>
+            <a href="/login" className="font-medium">{language === 'es' ? "Accede clientes" : "Client login"}</a>
             <Button className="bg-black text-white hover:bg-gray-800 font-semibold w-full mt-2 group">
-              Solicitar Demo
+              {language === 'es' ? "Solicitar Demo" : "Request Demo"}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         )}
       </header>
 
-      {/* HERO - Updated with larger titles */}
-      <section className="relative bg-gradient-to-br from-emerald-700 via-teal-700 to-emerald-900 text-white py-20 px-4">
-        <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between">
+      {/* HERO */}
+      <section className="relative bg-gradient-to-br from-emerald-700 via-teal-700 to-emerald-900 text-white py-20 px-4 border-b border-emerald-200" style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>
+        <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-6">
           <div className="max-w-xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">Bienvenido a Hunter, donde no esperamos oportunidades — las creamos y las cazamos.</h1>
-            <p className="text-2xl md:text-3xl mb-6">TU META, NUESTRO BLANCO.</p>
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight drop-shadow-lg">{language === 'es' ? "Bienvenido a Hunter, donde no esperamos oportunidades — las creamos y las cazamos." : "Welcome to Hunter, where we don't wait for opportunities — we create and hunt them."}</h1>
+            <p className="text-2xl md:text-3xl mb-6 font-semibold uppercase">{language === 'es' ? "Tu meta, nuestro blanco." : "Your goals, our target."}</p>
             <div className="relative">
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="bg-white text-emerald-700 hover:bg-gray-200 font-bold text-lg px-8 py-6 group">
-                  Probar Hunter ahora
+                  {language === 'es' ? "Probar Hunter ahora" : "Try Hunter Now"}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button className="bg-white text-emerald-700 hover:bg-gray-200 font-bold text-lg px-8 py-6 group">
-                  Solicitar demo gratuita
+                  {language === 'es' ? "Solicitar demo gratuita" : "Request Free Demo"}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </div>
             <div className="mt-8 text-sm md:text-base text-emerald-100 font-medium flex items-center">
-              <span>Plataforma super fácil</span>
+              <span>{language === 'es' ? "Plataforma super fácil" : "Super easy platform"}</span>
               <span className="mx-2">—</span>
               <span className="flex items-center">
-                Solo 20 clientes por mes
+                {language === 'es' ? "Solo 20 clientes por mes" : "Only 20 clients per month"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </span>
             </div>
           </div>
           <div className="flex-1 flex justify-center mb-12 md:mb-0">
-            <LogoWhite className="h-40 md:h-60" />
+            <LogoWhite className="h-40 md:h-60 drop-shadow-xl" />
           </div>
         </div>
       </section>
 
-      {/* What is Hunter AI? - New section */}
-      <section className="py-16 px-4 bg-white">
+      {/* What is Hunter AI? - Eliminado el banner amarillo de "por qué elegirnos" */}
+      <section className="py-12 px-4 bg-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center">Que nos hace diferentes</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center text-emerald-800">{language === 'es' ? "¿Qué nos hace diferentes?" : "What makes us different?"}</h2>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-gray-700">
-            En Hunter, trabajamos de la mano con cada cliente, manteniendo un contacto constante para garantizar
-            que la configuración se adapte siempre a sus objetivos y necesidades en evolución.
+            {language === 'es'
+              ? "En Hunter, trabajamos de la mano con cada cliente, manteniendo un contacto constante para garantizar que la configuración se adapte siempre a sus objetivos y necesidades en evolución."
+              : "At Hunter, we work closely with each client, maintaining continuous contact to ensure the setup always adapts to their evolving goals and needs."
+            }
           </p>
         </div>
       </section>
@@ -157,7 +160,7 @@ const Index = () => {
       {/* PROCESO HUNTER AI PRO */}
       <section id="process" className="py-16 px-4 bg-emerald-50">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Proceso Hunter AI Pro</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">{language === 'es' ? "Proceso Hunter AI Pro" : "Hunter AI Pro Process"}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {processSteps.map((step, idx) => (
               <ProcessCard
@@ -175,7 +178,7 @@ const Index = () => {
       {/* LOGOS EMPRESAS */}
       <section className="bg-white py-12">
         <div className="container mx-auto py-12 px-4">
-          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">Empresas con las que trabajamos</h3>
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">{language === 'es' ? "Empresas con las que trabajamos" : "Companies we work with"}</h3>
           <CompanyLogosCarousel />
         </div>
       </section>
@@ -211,51 +214,51 @@ const Index = () => {
       {/* Plans and Pricing Section */}
       <section id="plans" className="py-16 px-4 bg-white">
         <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">¿Cuál es el mejor plan para ti?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">{language === 'es' ? "¿Cuál es el mejor plan para ti?" : "Which is the best plan for you?"}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <PlanCard
-              title="Plan Base"
-              price="Freemium"
+              title={language === 'es' ? "Plan Base" : "Basic Plan"}
+              price={language === 'es' ? "Freemium" : "Freemium"}
               features={[
-                "Automatización de 50 mensajes diarios",
-                "Integración con 1 plataforma",
-                "Soporte por email",
-                "Análisis básico de resultados"
+                language === 'es' ? "Automatización de 50 mensajes diarios" : "50 automated messages per day",
+                language === 'es' ? "Integración con 1 plataforma" : "1 platform integration",
+                language === 'es' ? "Soporte por email" : "Email support",
+                language === 'es' ? "Análisis básico de resultados" : "Basic analytics",
               ]}
-              buttonText="Reservar lugar"
+              buttonText={language === 'es' ? "Reservar lugar" : "Reserve spot"}
               onClick={() => handleEmailRequest("Subscription Request: Plan Base")}
             />
             <PlanCard
-              title="Plan Premium"
-              price="Consultar precio"
+              title={language === 'es' ? "Plan Premium" : "Premium Plan"}
+              price={language === 'es' ? "Consultar precio" : "Contact for pricing"}
               features={[
-                "Automatización de 200 mensajes diarios",
-                "Integración con 3 plataformas",
-                "Soporte prioritario",
-                "CRM completo",
-                "Análisis avanzado de resultados"
+                language === 'es' ? "Automatización de 200 mensajes diarios" : "200 automated messages per day",
+                language === 'es' ? "Integración con 3 plataformas" : "3 platform integrations",
+                language === 'es' ? "Soporte prioritario" : "Priority support",
+                language === 'es' ? "CRM completo" : "Full CRM",
+                language === 'es' ? "Análisis avanzado de resultados" : "Advanced analytics"
               ]}
-              buttonText="Reservar lugar"
+              buttonText={language === 'es' ? "Reservar lugar" : "Reserve spot"}
               isPrimary={true}
               onClick={() => handleEmailRequest("Subscription Request: Plan Premium")}
             />
             <PlanCard
-              title="Plan Enterprise"
-              price="Consultar precio"
+              title={language === 'es' ? "Plan Enterprise" : "Enterprise Plan"}
+              price={language === 'es' ? "Consultar precio" : "Contact for pricing"}
               features={[
-                "Automatización ilimitada",
-                "Integración con todas las plataformas",
-                "Soporte 24/7",
-                "CRM completo y personalizable",
-                "API para integraciones personalizadas",
-                "Analítica avanzada con IA"
+                language === 'es' ? "Automatización ilimitada" : "Unlimited automation",
+                language === 'es' ? "Integración con todas las plataformas" : "All platforms integration",
+                language === 'es' ? "Soporte 24/7" : "24/7 support",
+                language === 'es' ? "CRM completo y personalizable" : "Customizable full CRM",
+                language === 'es' ? "API para integraciones personalizadas" : "API for custom integrations",
+                language === 'es' ? "Analítica avanzada con IA" : "Advanced analytics with AI"
               ]}
-              buttonText="Reservar lugar"
+              buttonText={language === 'es' ? "Reservar lugar" : "Reserve spot"}
               onClick={() => handleEmailRequest("Subscription Request: Plan Enterprise")}
             />
           </div>
           <div className="mt-8 text-center flex items-center justify-center text-gray-600">
-            <span>*Solo 20 clientes nuevos por mes para garantizar la calidad del servicio</span>
+            <span>*{language === 'es' ? "Solo 20 clientes nuevos por mes para garantizar la calidad del servicio" : "Only 20 new clients per month to ensure top service quality"}</span>
             <ArrowRight className="ml-2 h-4 w-4" />
           </div>
         </div>
@@ -269,10 +272,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA Section - Updated with arrow */}
+      {/* Final CTA Section */}
       <section className="py-16 px-4 bg-black text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Estás a un clic de tu próxima cacería</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{language === 'es' ? "Estás a un clic de tu próxima cacería" : "You're one click away from your next hunt."}</h2>
           <Button 
             className="bg-white text-black hover:bg-emerald-100 px-8 py-6 text-lg group"
             onClick={() => handleEmailRequest("Start Now Request from Hunter AI Website")}
@@ -283,7 +286,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer - Updated to match Zasbot */}
+      {/* Footer */}
       <footer id="contact" className="bg-gray-900 text-white py-12 px-4">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -305,7 +308,6 @@ const Index = () => {
                 </a>
               </div>
             </div>
-            
             <div>
               <h3 className="text-lg font-bold mb-4">{t('contactInfo') as string}</h3>
               <div className="space-y-2">
@@ -323,7 +325,6 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            
             <div>
               <h3 className="text-lg font-bold mb-4">{t('quickLinks') as string}</h3>
               <ul className="space-y-2">
@@ -354,7 +355,7 @@ const Index = () => {
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
             <p>&copy; {new Date().getFullYear()} Hunter AI. All rights reserved.</p>
           </div>
