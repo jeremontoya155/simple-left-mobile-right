@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   Facebook, Instagram, Linkedin, Twitter, Menu, X, Mail, Phone, MapPin, ChevronRight, UserPlus, Users, Search,
@@ -10,12 +9,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import LogoWhite from "@/components/ui/LogoWhite";
 import CompanyLogosCarousel from "@/components/CompanyLogosCarousel";
 import ProcessCard from "@/components/ProcessCard";
-import IntegrationSection from "@/components/IntegrationSection";
-import DifferentiatorsSection from "@/components/DifferentiatorsSection";
 import BlogLink from "@/components/BlogLink";
 import PlanCard from "@/components/PlanCard";
 import FAQ from "@/components/FAQ";
-import { 
+import {
   Sheet,
   SheetContent,
   SheetTrigger,
@@ -33,10 +30,77 @@ const processSteps = [
   { icon: <ChevronRight className="w-8 h-8" />, title: "Calificación y derivación", description: "Automáticamente se derivan y califican los leads más calificados." },
 ];
 
+const differentiatorsData = [
+  {
+    title: {
+      es: "Automatización total",
+      en: "Full automation"
+    },
+    description: {
+      es: "Automatizamos todos los pasos para que solo te concentres en cerrar ventas.",
+      en: "We automate every step so you can focus on closing deals."
+    },
+    icon: Zap
+  },
+  {
+    title: {
+      es: "CRM integrado y seguimiento",
+      en: "Integrated CRM & tracking"
+    },
+    description: {
+      es: "Gestiona tus prospectos desde una sola plataforma. Todo tu funnel en un solo lugar.",
+      en: "Manage your prospects from one platform. All your funnel in one place."
+    },
+    icon: Database
+  },
+  {
+    title: {
+      es: "Personalización y escalabilidad",
+      en: "Personalization & scalability"
+    },
+    description: {
+      es: "Configura estrategias que crecen contigo y se adaptan a cada campaña.",
+      en: "Set up strategies that grow with you and adapt to each campaign."
+    },
+    icon: Layers
+  },
+  {
+    title: {
+      es: "Atención personalizada",
+      en: "Personalized support"
+    },
+    description: {
+      es: "Acompañamiento 1-a-1 para que obtengas el máximo de la herramienta.",
+      en: "1-on-1 guidance to get the most from the tool."
+    },
+    icon: MessageCircle
+  }
+];
+
+const BlogCard = () => {
+  const { language } = useLanguage();
+  return (
+    <a
+      href="/blog"
+      className="block rounded-xl bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 hover:shadow-xl transition-shadow p-6 md:p-8 max-w-md mx-auto text-center mb-10 mt-6 group"
+      style={{ fontFamily: 'Poppins, sans-serif' }}
+    >
+      <span className="text-emerald-800 font-bold uppercase text-xs tracking-wider">Blog</span>
+      <h4 className="text-2xl font-bold my-2 group-hover:text-emerald-700 transition-colors">{language === "es" ? "Descubre tips para crecer y vender más" : "Discover tips to grow and sell more"}</h4>
+      <p className="text-gray-600 mb-3">{language === "es"
+        ? "Accede a insights, casos y recursos exclusivos para mejorar tus resultados con Hunter."
+        : "Access insights, cases, and exclusive resources to improve your Hunter results."
+      }</p>
+      <span className="inline-block mt-2 text-emerald-600 font-semibold underline underline-offset-4 group-hover:underline-offset-8">{language === "es" ? "Visitar blog" : "Visit blog"}</span>
+    </a>
+  );
+};
+
 const Index = () => {
   const { t, language } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
 
   const benefits = [
     { icon: MessageCircle, title: t('benefit1') as string },
@@ -53,19 +117,18 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-white/95 via-emerald-50 to-emerald-100">
-      {/* Navbar */}
-      <header className="bg-white/80 backdrop-blur border-b border-gray-100 text-black p-4 md:p-6 sticky top-0 z-20 shadow-sm transition">
+      <header className="nav-glass p-3 md:p-5 sticky top-0 z-20 shadow-sm mx-auto max-w-7xl rounded-b-[1.6rem] mt-2 mb-1">
         <div className="container mx-auto flex justify-between items-center">
           <Logo dark={true} className="h-8 md:h-10" />
           <nav className="hidden md:flex space-x-8">
-            <a href="#" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Inicio" : "Home"}</a>
-            <a href="#differentiators" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "¿Por qué Hunter?" : "Why Hunter?"}</a>
-            <a href="#integrations" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Integraciones" : "Integrations"}</a>
-            <a href="#process" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Proceso" : "Process"}</a>
-            <a href="#plans" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Planes" : "Plans"}</a>
-            <a href="#faq" className="text-black font-medium hover:text-emerald-700 transition-colors">FAQ</a>
+            <a href="#" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Inicio" : "Home"}</a>
+            <a href="#differentiators" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "¿Por qué Hunter?" : "Why Hunter?"}</a>
+            <a href="#integrations" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Integraciones" : "Integrations"}</a>
+            <a href="#process" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Proceso" : "Process"}</a>
+            <a href="#plans" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Planes" : "Plans"}</a>
+            <a href="#faq" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">FAQ</a>
             <BlogLink />
-            <a href="/login" className="text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Accede clientes" : "Client login"}</a>
+            <a href="/login" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Accede clientes" : "Client login"}</a>
           </nav>
           <div className="flex items-center space-x-2 md:space-x-4">
             <LanguageSwitcher />
@@ -82,7 +145,6 @@ const Index = () => {
             </button>
           </div>
         </div>
-        {/* Menú móvil */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white w-full py-4 flex flex-col text-black space-y-4 shadow mt-2 rounded-b-xl">
             <a href="#" className="font-medium">{language === 'es' ? "Inicio" : "Home"}</a>
@@ -101,7 +163,6 @@ const Index = () => {
         )}
       </header>
 
-      {/* HERO */}
       <section className="relative bg-gradient-to-br from-emerald-700 via-teal-700 to-emerald-900 text-white py-20 px-4 border-b border-emerald-200" style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>
         <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-6">
           <div className="max-w-xl">
@@ -134,30 +195,55 @@ const Index = () => {
         </div>
       </section>
 
-      {/* What is Hunter AI? - Eliminado el banner amarillo de "por qué elegirnos" */}
-      <section className="py-12 px-4 bg-white">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center text-emerald-800">{language === 'es' ? "¿Qué nos hace diferentes?" : "What makes us different?"}</h2>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-gray-700">
-            {language === 'es'
-              ? "En Hunter, trabajamos de la mano con cada cliente, manteniendo un contacto constante para garantizar que la configuración se adapte siempre a sus objetivos y necesidades en evolución."
-              : "At Hunter, we work closely with each client, maintaining continuous contact to ensure the setup always adapts to their evolving goals and needs."
-            }
-          </p>
+      <section id="differentiators" className="pt-12 pb-8 px-4 bg-white card-gradient">
+        <div className="container mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center text-emerald-800">
+            {language === 'es' ? "¿Qué nos hace diferentes?" : "What makes us different?"}
+          </h2>
+          <div className="max-w-2xl mx-auto flex flex-col gap-4">
+            {differentiatorsData.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className={`rounded-xl border border-emerald-200 transition-transform transform bg-white py-3 px-4 shadow hover:scale-105 cursor-pointer duration-200 ${
+                    activeAccordion === idx ? "ring-2 ring-emerald-400" : ""
+                  }`}
+                  onClick={() =>
+                    setActiveAccordion(activeAccordion === idx ? null : idx)
+                  }
+                >
+                  <div className="flex items-center gap-4">
+                    <span className="h-9 w-9 rounded-full bg-emerald-50 flex items-center justify-center shadow mr-1">
+                      <Icon className="text-emerald-600 w-6 h-6" />
+                    </span>
+                    <h3 className="font-bold text-lg flex-1">{item.title[language]}</h3>
+                    <span className="ml-2">
+                      <ChevronRight
+                        className={`transition-transform duration-200 ${activeAccordion === idx ? "rotate-90 text-emerald-500" : "text-gray-400"}`}
+                        size={24}
+                      />
+                    </span>
+                  </div>
+                  <div
+                    className={`overflow-hidden transition-max-h duration-300 ${
+                      activeAccordion === idx ? "max-h-40 mt-3 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                    style={{ transitionProperty: 'max-height, opacity' }}
+                  >
+                    <p className="text-gray-700 text-base">{item.description[language]}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* DIFERENCIADORES */}
-      <div id="differentiators">
-        <DifferentiatorsSection />
-      </div>
-
-      {/* INTEGRACIONES */}
       <div id="integrations">
         <IntegrationSection />
       </div>
 
-      {/* PROCESO HUNTER AI PRO */}
       <section id="process" className="py-16 px-4 bg-emerald-50">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">{language === 'es' ? "Proceso Hunter AI Pro" : "Hunter AI Pro Process"}</h2>
@@ -175,7 +261,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* LOGOS EMPRESAS */}
       <section className="bg-white py-12">
         <div className="container mx-auto py-12 px-4">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">{language === 'es' ? "Empresas con las que trabajamos" : "Companies we work with"}</h3>
@@ -183,7 +268,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* TESTIMONIOS */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">{t('testimonials') as string}</h2>
@@ -191,7 +275,7 @@ const Index = () => {
             <CarouselContent>
               {(t('testimonialsItems') as any[]).map((testimonial, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
-                  <TestimonialCard 
+                  <TestimonialCard
                     quote={testimonial.quote}
                     name={testimonial.name}
                     company={testimonial.company}
@@ -211,11 +295,23 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Plans and Pricing Section */}
       <section id="plans" className="py-16 px-4 bg-white">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">{language === 'es' ? "¿Cuál es el mejor plan para ti?" : "Which is the best plan for you?"}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <PlanCard
+              title={language === 'es' ? "Freemium" : "Freemium"}
+              price={language === 'es' ? "Gratis" : "Free"}
+              features={[
+                language === 'es' ? "Hasta 15 mensajes diarios automáticos" : "Up to 15 automated messages per day",
+                language === 'es' ? "Soporte básico" : "Basic support",
+                language === 'es' ? "Pruebas limitadas de funciones" : "Limited feature tests",
+                language === 'es' ? "No requiere tarjeta" : "No credit card required"
+              ]}
+              buttonText={language === 'es' ? "Empezar gratis" : "Start free"}
+              isPrimary={false}
+              onClick={() => handleEmailRequest("Subscription Request: Freemium Plan")}
+            />
             <PlanCard
               title={language === 'es' ? "Plan Base" : "Basic Plan"}
               price={language === 'es' ? "Freemium" : "Freemium"}
@@ -264,7 +360,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section id="faq" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">{t('faq') as string}</h2>
@@ -272,11 +367,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
       <section className="py-16 px-4 bg-black text-white">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">{language === 'es' ? "Estás a un clic de tu próxima cacería" : "You're one click away from your next hunt."}</h2>
-          <Button 
+          <Button
             className="bg-white text-black hover:bg-emerald-100 px-8 py-6 text-lg group"
             onClick={() => handleEmailRequest("Start Now Request from Hunter AI Website")}
           >
@@ -286,7 +380,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      <BlogCard />
+
       <footer id="contact" className="bg-gray-900 text-white py-12 px-4">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -14,11 +14,12 @@ interface PlanCardProps {
 
 const PlanCard = ({ title, price, features, buttonText, isPrimary = false, onClick }: PlanCardProps) => {
   return (
-    <div 
-      className={`rounded-lg p-6 shadow-lg transform transition-all duration-300 hover:-translate-y-4 hover:scale-105 ${isPrimary ? 'bg-emerald-50 border-2 border-black' : 'bg-white border border-gray-200'} `}
+    <div
+      className={`rounded-lg p-6 shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-emerald-100 ${isPrimary ? 'bg-emerald-50 border-2 border-black' : 'bg-white border border-gray-200'} `}
+      style={{ minHeight: 330, minWidth: 220 }}
     >
       <h3 className="text-2xl font-bold mb-2">{title}</h3>
-      {/* El precio sigue pasando por prop, pero se puede dejar vacío o customizarlo */}
+      <p className="text-lg font-semibold text-emerald-600 mb-4">{price}</p>
       <ul className="mb-6 space-y-2">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start">
@@ -27,7 +28,7 @@ const PlanCard = ({ title, price, features, buttonText, isPrimary = false, onCli
           </li>
         ))}
       </ul>
-      <Button 
+      <Button
         className={`w-full group ${isPrimary ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-emerald-600 hover:bg-emerald-700'}`}
         onClick={onClick}
       >

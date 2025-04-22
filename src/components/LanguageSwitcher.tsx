@@ -1,41 +1,52 @@
 
 import React from 'react';
-import { Button } from "@/components/ui/button";
 import { useLanguage } from '@/contexts/LanguageContext';
 
-// Fijamos banderas Unicode, pueden ser reemplazadas por SVG si se desean.
-const flags: Record<string, string> = {
+const FLAG_ICON = {
+  es: "🇪🇸",
   en: "🇺🇸",
-  es: "🇪🇸"
 };
 
 const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="flex space-x-2 bg-white/80 backdrop-blur rounded-full px-2 py-1 border border-gray-200 shadow-sm">
-      <Button
-        variant="ghost"
-        size="icon"
+    <div
+      className="flex items-center w-[92px] h-9 bg-white/90 border border-gray-200 rounded-full shadow-inner gap-0 p-1 relative transition-all"
+      style={{ minWidth: 92 }}
+    >
+      <button
+        aria-label="Español"
         onClick={() => setLanguage('es')}
-        aria-label="Cambiar a Español"
-        className={`transition-all rounded-full px-2 py-1 ${language === 'es' ? 'bg-emerald-600 text-white shadow font-bold scale-110' : 'text-gray-700 hover:bg-emerald-50'}`}
+        className={`flex-1 h-7 flex items-center justify-center font-semibold px-2 mr-1 rounded-full relative z-10 transition-all duration-150 ${
+          language === 'es' ? 'text-white' : 'text-gray-800'
+        }`}
+        style={{ fontSize: 14 }}
       >
-        <span className="text-lg mr-1">{flags['es']}</span>
-        <span className="font-medium hidden md:inline">ES</span>
-      </Button>
-      <Button
-        variant="ghost"
-        size="icon"
+        <span className="hidden md:inline mr-1">{FLAG_ICON["es"]}</span>
+        <span>ES</span>
+      </button>
+      <button
+        aria-label="English"
         onClick={() => setLanguage('en')}
-        aria-label="Switch to English"
-        className={`transition-all rounded-full px-2 py-1 ${language === 'en' ? 'bg-emerald-600 text-white shadow font-bold scale-110' : 'text-gray-700 hover:bg-emerald-50'}`}
+        className={`flex-1 h-7 flex items-center justify-center font-semibold px-2 ml-1 rounded-full relative z-10 transition-all duration-150 ${
+          language === 'en' ? 'text-white' : 'text-gray-800'
+        }`}
+        style={{ fontSize: 14 }}
       >
-        <span className="text-lg mr-1">{flags['en']}</span>
-        <span className="font-medium hidden md:inline">EN</span>
-      </Button>
+        <span className="hidden md:inline mr-1">{FLAG_ICON["en"]}</span>
+        <span>EN</span>
+      </button>
+      <span
+        className={`absolute top-1 left-1 h-7 w-[42px] rounded-full bg-emerald-600 z-0 transition-transform duration-200`}
+        style={{
+          transform:
+            language === 'es'
+              ? 'translateX(0)'
+              : 'translateX(42px)',
+        }}
+      />
     </div>
   );
 };
-
 export default LanguageSwitcher;
