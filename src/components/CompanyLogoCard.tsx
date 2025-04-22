@@ -6,12 +6,15 @@ import { useLanguage } from "@/contexts/LanguageContext";
 interface CompanyLogoCardProps {
   src: string;
   alt: string;
-  nameKey: string; // nombre clave, traducible
+  nameKey: "company1" | "company2" | "company3" | "company4"; // Restricted to valid translation keys
 }
 
 const CompanyLogoCard = ({ src, alt, nameKey }: CompanyLogoCardProps) => {
   const { t } = useLanguage();
   const [expanded, setExpanded] = useState(false);
+
+  // Compute the description key based on the nameKey
+  const descriptionKey = `${nameKey}Desc` as "company1Desc" | "company2Desc" | "company3Desc" | "company4Desc";
 
   return (
     <div
@@ -29,12 +32,11 @@ const CompanyLogoCard = ({ src, alt, nameKey }: CompanyLogoCardProps) => {
         <img src={src} alt={alt} className="max-h-20 max-w-20 object-contain" draggable={false} />
       </div>
       <span className="text-emerald-800 text-base md:text-lg font-bold text-center drop-shadow">
-        {t(nameKey) as string}
+        {t(nameKey)}
       </span>
       {expanded && (
         <div className="mt-2 px-2 py-1 rounded-xl bg-emerald-50 text-emerald-900 text-xs shadow">
-          {/* Opcional: Sección extra */}
-          {t(`${nameKey}Desc`)}
+          {t(descriptionKey)}
         </div>
       )}
     </div>
