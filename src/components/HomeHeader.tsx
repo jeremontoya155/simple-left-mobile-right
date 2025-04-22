@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,9 +14,9 @@ interface HomeHeaderProps {
 const HomeHeader = ({ mobileMenuOpen, setMobileMenuOpen }: HomeHeaderProps) => {
   const { t, language } = useLanguage();
   return (
-    <header className="relative z-20 bg-gradient-to-br from-emerald-700 via-teal-700 to-emerald-900">
+    <header className="relative z-20 bg-gradient-to-br from-[#047857] via-[#10b981] to-[#6ee7b7]">
       {/* Navbar glass + white overlay */}
-      <div className="relative nav-glass p-3 md:p-5 shadow-sm mx-auto max-w-7xl rounded-b-[1.6rem] mt-2 mb-1">
+      <div className="relative nav-glass p-3 md:p-5 shadow-sm mx-auto max-w-full">
         <div className="container mx-auto flex justify-between items-center">
           <Logo dark={true} className="h-8 md:h-10" />
           <nav className="hidden md:flex space-x-8">

@@ -25,7 +25,7 @@ const Index = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#034732] via-[#f3faf7] to-emerald-100"> {/* Fondo verde oscuro al fondo */}
+    <div className="flex flex-col min-h-screen bg-transparent"> {/* Changed from green gradient */}
       <header className="sticky top-0 z-50">
         <HomeHeader mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       </header>
