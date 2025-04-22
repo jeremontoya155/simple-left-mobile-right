@@ -3,9 +3,9 @@ import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const COMPANY_IMAGES = [
-  "/lovable-uploads/daaa6b48-631a-4e62-9a2c-1b53de78b883.png",
-  "/lovable-uploads/8dc92067-487d-436c-abc7-0816cb9f301c.png",
-  "/lovable-uploads/52161466-4c95-4dc6-852c-8ad0400565e5.png",
+  "/lovable-uploads/9b2f7fd7-f636-4aa9-ba88-3de17e4eb57b.png", // CPG Recruitment
+  "/lovable-uploads/7f42dc7d-2ea7-4a08-9116-54bb60befb14.png", // Lucky 8
+  "/lovable-uploads/7c1d344c-64b1-4a71-8c6d-83188c7345a1.png", // The Digital CEO Accelerator
 ];
 
 const CompaniesSection = () => {
