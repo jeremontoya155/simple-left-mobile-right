@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   Facebook, Instagram, Linkedin, Twitter, Menu, X, Mail, Phone, MapPin, ChevronRight, UserPlus, Users, Search,
@@ -12,6 +13,7 @@ import ProcessCard from "@/components/ProcessCard";
 import BlogLink from "@/components/BlogLink";
 import PlanCard from "@/components/PlanCard";
 import FAQ from "@/components/FAQ";
+import IntegrationSection from "@/components/IntegrationSection";
 import {
   Sheet,
   SheetContent,
