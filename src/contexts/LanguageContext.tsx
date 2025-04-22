@@ -1,7 +1,5 @@
-
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-// Define the shape of our translation keys
 type TranslationKey = 
   | 'home' 
   | 'about' 
@@ -22,7 +20,6 @@ type TranslationKey =
   | 'ourInstagram' 
   | 'ourEmail' 
   | 'location'
-  // New translation keys
   | 'features'
   | 'plans'
   | 'requestDemo'
@@ -56,12 +53,16 @@ type TranslationKey =
   | 'contactInfo'
   | 'quickLinks'
   | 'privacyPolicy'
-  | 'termsAndConditions';
+  | 'termsAndConditions'
+  | 'differentiators'
+  | 'whyChooseUs'
+  | 'company1' | 'company2' | 'company3' | 'company4'
+  | 'company1Desc' | 'company2Desc' | 'company3Desc' | 'company4Desc'
+  | 'companiesTitle'
+  | 'freemiumPlan';
 
-// Translation data
 const translations = {
   en: {
-    // Navbar
     home: "Home",
     about: "About Us",
     products: "Products",
@@ -70,7 +71,6 @@ const translations = {
     plans: "Plans",
     requestDemo: "Request Demo",
     
-    // Hero section
     heroTitle: "HUNTER ASSISTANTS",
     heroDescription: "We boost customer acquisition and conversion with artificial intelligence, automating multi-channel prospecting and lead management without interruption. For businesses or personal brands looking to attract customers in a sustainable and scalable way.",
     welcomeHunter: "Welcome to Hunter, where we don't wait for opportunities — we create and hunt them.",
@@ -79,25 +79,21 @@ const translations = {
     requestFreeDemo: "Request Free Demo",
     moreInfo: "I want more info",
     
-    // What is Hunter AI section
     whatIsHunterAI: "What is Hunter AI?",
     whatIsHunterAIDesc: "We empower customer acquisition and conversion with artificial intelligence, automating prospecting and lead management across multiple channels, without interruption for companies or personal brands looking to attract customers in a sustainable and scalable way.",
     
-    // How it works section
     howItWorks: "How it Works",
     step1: "Load ideal client profile",
     step2: "Create avatar",
     step3: "Search and contact compatible profiles",
     step4: "Automatic qualification and referral",
     
-    // Key Benefits section
     keyBenefits: "Key Benefits",
     benefit1: "Message automation (100-300 daily)",
     benefit2: "Integration with multiple platforms",
     benefit3: "CRM and unified inbox",
     benefit4: "Scalability through multiple accounts",
     
-    // Testimonials section
     testimonials: "Testimonials",
     testimonialsItems: [
       {
@@ -117,7 +113,6 @@ const translations = {
       }
     ],
     
-    // Plans and Pricing section
     plansAndPricing: "Plans and Pricing",
     basicPlan: {
       title: "Basic Plan",
@@ -154,7 +149,6 @@ const translations = {
     },
     choosePlan: "Choose Plan",
     
-    // FAQ section
     faq: "Frequently Asked Questions",
     faqItems: [
       {
@@ -175,11 +169,9 @@ const translations = {
       }
     ],
     
-    // Final CTA
     finalCTA: "You're one click away from your next hunt.",
     startNow: "Start Now",
     
-    // Sections
     channelsTitle: "ON ALL YOUR SERVICE CHANNELS",
     softwareTitle: "THE SOFTWARE DOES THE WORK FOR YOU",
     softwareDescription: "It's a system designed to maximize results with strategic precision. Its ability to configure advanced parameters, customize strategies, and manage interactions in real-time will allow you to obtain up to 3,800 monthly contacts. With a sophisticated and intuitive dashboard, you'll be able to monitor each stage of the process. Hunter will boost your growth in an intelligent and controlled manner.",
@@ -223,7 +215,32 @@ const translations = {
       }
     ],
     
-    // Footer
+    whyChooseUs: "Why choose us?",
+    differentiators: [
+      { title: "AI-Powered Automation", desc: "Automate your prospecting efforts using cutting-edge AI designed for your business." },
+      { title: "Multichannel Messaging", desc: "Reach customers on Instagram, LinkedIn, WhatsApp, and more without friction." },
+      { title: "Detailed Analytics", desc: "Gain valuable insights to optimize results and scale." },
+      { title: "Integrated CRM", desc: "Manage all responses in a single place with smart filtering." },
+    ],
+    companiesTitle: "Companies we work with",
+    company1: "CPG Recruitment",
+    company2: "Lucky 8",
+    company3: "Digital CEO Accelerator",
+    company4: "Elite Ventures",
+    company1Desc: "",
+    company2Desc: "",
+    company3Desc: "",
+    company4Desc: "",
+    freemiumPlan: {
+      title: "Freemium",
+      features: [
+        "Basic account with limited daily actions",
+        "Access to general dashboard",
+        "Support only via documentation"
+      ],
+      price: "$0/month"
+    },
+    
     contactUs: "Contact Us",
     contactInfo: "Contact Information",
     quickLinks: "Quick Links",
@@ -235,7 +252,6 @@ const translations = {
     location: "Córdoba, Argentina"
   },
   es: {
-    // Navbar
     home: "Inicio",
     about: "Nosotros",
     products: "Productos",
@@ -244,34 +260,29 @@ const translations = {
     plans: "Planes",
     requestDemo: "Solicitar Demo",
     
-    // Hero section
     heroTitle: "HUNTER ASSISTANTS",
-    heroDescription: " Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads en múlticanal, sin interrupción. Para empresas o marcas personales que buscan atraer clientes de manera sostenible y escalable.",
+    heroDescription: "Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads en múlticanal, sin interrupción. Para empresas o marcas personales que buscan atraer clientes de manera sostenible y escalable.",
     welcomeHunter: "Bienvenido a Hunter, donde no esperamos oportunidades — las creamos y las cazamos.",
     yourGoalsOurTarget: "Tus metas, nuestro blanco.",
     tryHunterNow: "Probar Hunter ahora",
     requestFreeDemo: "Solicitar demo gratuita",
     moreInfo: "Quiero más info",
     
-    // What is Hunter AI section
     whatIsHunterAI: "¿Qué es Hunter AI?",
     whatIsHunterAIDesc: "Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads en múlticanal, sin interrupción para empresas o marcas personales que buscan atraer clientes de manera sostenible y escalable.",
     
-    // How it works section
     howItWorks: "Cómo Funciona",
     step1: "Carga del perfil del cliente ideal",
     step2: "Creación del avatar",
     step3: "Búsqueda y contacto con perfiles compatibles",
     step4: "Calificación y derivación automática",
     
-    // Key Benefits section
     keyBenefits: "Beneficios Clave",
     benefit1: "Automatización de mensajes (100-300 diarios)",
     benefit2: "Integración con múltiples plataformas",
     benefit3: "CRM y bandeja unificada",
     benefit4: "Escalabilidad mediante múltiples cuentas",
     
-    // Testimonials section
     testimonials: "Testimonios",
     testimonialsItems: [
       {
@@ -291,7 +302,6 @@ const translations = {
       }
     ],
     
-    // Plans and Pricing section
     plansAndPricing: "Planes y Precios",
     basicPlan: {
       title: "Plan Básico",
@@ -328,7 +338,6 @@ const translations = {
     },
     choosePlan: "Elegir Plan",
     
-    // FAQ section
     faq: "Preguntas Frecuentes",
     faqItems: [
       {
@@ -349,11 +358,9 @@ const translations = {
       }
     ],
     
-    // Final CTA
     finalCTA: "Estás a un clic de tu próxima cacería.",
     startNow: "Empezar ahora",
     
-    // Sections
     channelsTitle: "EN TODOS TUS CANALES DE ATENCIÓN",
     softwareTitle: "EL SOFTWARE HACE EL TRABAJO POR TI",
     softwareDescription: "Es un sistema diseñado para maximizar resultados con precisión estratégica su capacidad para configurar parámetros avanzados, personalizar estrategias y gestionar interacciones en tiempo real te permitirá obtener hasta 3.800 contactos mensuales. Con un sofisticado e intuitivo dashboard podrás monitorear cada etapa de proceso, Hunter impulsará tu crecimiento de manera inteligente y controlada.",
@@ -397,7 +404,32 @@ const translations = {
       }
     ],
     
-    // Footer
+    whyChooseUs: "¿Por qué elegirnos?",
+    differentiators: [
+      { title: "Automatización impulsada por IA", desc: "Automatiza la prospección con IA avanzada para tu negocio." },
+      { title: "Mensajería multicanal", desc: "Llega a clientes en Instagram, LinkedIn, WhatsApp y más sin fricción." },
+      { title: "Analytics detallados", desc: "Obtén insights para optimizar resultados y escalar." },
+      { title: "CRM integrado", desc: "Gestiona todas las respuestas en un solo lugar con filtrado inteligente." },
+    ],
+    companiesTitle: "Empresas con las que trabajamos",
+    company1: "CPG Recruitment",
+    company2: "Lucky 8",
+    company3: "Digital CEO Accelerator",
+    company4: "Elite Ventures",
+    company1Desc: "",
+    company2Desc: "",
+    company3Desc: "",
+    company4Desc: "",
+    freemiumPlan: {
+      title: "Freemium",
+      features: [
+        "Cuenta básica con acciones diarias limitadas",
+        "Acceso a panel general",
+        "Soporte solo vía documentación"
+      ],
+      price: "$0/mes"
+    },
+    
     contactUs: "Contáctanos",
     contactInfo: "Información de Contacto",
     quickLinks: "Enlaces Rápidos",
@@ -412,7 +444,6 @@ const translations = {
 
 type Language = 'en' | 'es';
 
-// Define a union type for possible return values from the translation function
 type TranslationValue = string | string[] | { title: string; description: string }[] | any;
 
 interface LanguageContextType {
