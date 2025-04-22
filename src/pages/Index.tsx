@@ -25,7 +25,7 @@ const Index = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-transparent"> {/* Changed from green gradient */}
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-emerald-700 via-teal-700 to-emerald-900"> {/* Extended green gradient background */}
       <header className="sticky top-0 z-50">
         <HomeHeader mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       </header>
@@ -37,7 +37,7 @@ const Index = () => {
       <TestimonialsSection />
       <PlansSection handleEmailRequest={handleEmailRequest} />
       <FAQSection />
-      <section className="py-16 px-4 bg-black text-white">
+      <section className="py-16 px-4 bg-transparent text-white">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('startNow') as string}</h2>
           <Button
@@ -55,3 +55,4 @@ const Index = () => {
 };
 
 export default Index;
+
