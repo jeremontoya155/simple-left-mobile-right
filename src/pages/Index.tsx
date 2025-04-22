@@ -1,14 +1,6 @@
-
 import React, { useState } from "react";
-import { 
-  Facebook, 
-  Instagram, 
-  Menu, 
-  MessageCircle, 
-  X, 
-  UserPlus, 
-  Users, 
-  Search,
+import {
+  Facebook, Instagram, Linkedin, Twitter, Menu, X, Mail, Phone, MapPin, ChevronRight, UserPlus, Users, Search,
   CheckCircle,
   MessageSquare,
   Layers,
@@ -18,16 +10,21 @@ import {
   Milestone,
   PieChart,
   ArrowRight,
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Twitter,
-  ChevronRight
+  MessageCircle as MessageCircleIcon,
+  MessageSquare as MessageSquareIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
+import LogoWhite from "@/components/ui/LogoWhite";
+import CompanyLogosCarousel from "@/components/CompanyLogosCarousel";
+import ProcessCard from "@/components/ProcessCard";
+import IntegrationSection from "@/components/IntegrationSection";
+import DifferentiatorsSection from "@/components/DifferentiatorsSection";
+import BlogLink from "@/components/BlogLink";
+// Importar componentes necesarios o los originales para FAQ, PlanCard, TestimonialCard, etc.
+import PlanCard from "@/components/PlanCard";
+import FAQ from "@/components/FAQ";
 import { 
   Sheet,
   SheetContent,
@@ -38,8 +35,14 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Logo from "@/components/Logo";
 import BenefitCard from "@/components/BenefitCard";
 import TestimonialCard from "@/components/TestimonialCard";
-import PlanCard from "@/components/PlanCard";
-import FAQ from "@/components/FAQ";
+import StarRating from "@/components/StarRating";
+
+const processSteps = [
+  { icon: <UserPlus className="w-8 h-8" />, title: "Carga perfil cliente ideal", description: "Podrás cargar un perfil detallado del cliente que buscas alcanzar." },
+  { icon: <Instagram className="w-8 h-8" />, title: "Creación del avatar", description: "Creamos un avatar automatizado para interactuar representando a tu marca." },
+  { icon: <Mail className="w-8 h-8" />, title: "Búsqueda y contacto", description: "Buscar y contactar de forma inteligente perfiles compatibles." },
+  { icon: <ChevronRight className="w-8 h-8" />, title: "Calificación y derivación", description: "Automáticamente se derivan y califican los leads más calificados." },
+];
 
 const Index = () => {
   const { t, language } = useLanguage();
@@ -67,136 +70,110 @@ const Index = () => {
     const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
     window.location.href = mailtoLink;
   };
-  
+
+  // Navbar adaptado estilo zasbot:
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navbar */}
-      <header className="bg-emerald-700 text-white p-4 sticky top-0 z-10">
+      <header className="bg-white border-b border-gray-100 text-black p-4 sticky top-0 z-10">
         <div className="container mx-auto flex justify-between items-center">
-          {isMobile ? (
-            <>
-              <Logo className="z-20" />
-              
-              <div className="flex items-center space-x-4">
-                <LanguageSwitcher />
-                <Sheet>
-                  <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="text-white p-1">
-                      <Menu className="h-6 w-6" />
-                    </Button>
-                  </SheetTrigger>
-                  <SheetContent side="right" className="bg-emerald-700 text-white">
-                    <div className="flex flex-col space-y-6 mt-10">
-                      <NavLinks />
-                      <Button
-                        className="bg-white text-emerald-700 hover:bg-emerald-100"
-                        onClick={() => handleEmailRequest("Demo Request from Hunter AI Website")}
-                      >
-                        {t('requestDemo') as string}
-                      </Button>
-                    </div>
-                  </SheetContent>
-                </Sheet>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="flex items-center">
-                <Logo className="mr-8" />
-                <div className="flex space-x-6">
-                  <NavLinks />
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <LanguageSwitcher />
-                <Button 
-                  className="bg-white text-emerald-700 hover:bg-emerald-100"
-                  onClick={() => handleEmailRequest("Demo Request from Hunter AI Website")}
-                >
-                  {t('requestDemo') as string}
-                </Button>
-              </div>
-            </>
-          )}
+          <LogoWhite className="h-10" />
+          <nav className="hidden md:flex space-x-8">
+            <a href="#" className="text-black font-medium hover:text-emerald-700 transition-colors">Inicio</a>
+            <a href="#differentiators" className="text-black font-medium hover:text-emerald-700 transition-colors">¿Por qué Hunter?</a>
+            <a href="#integrations" className="text-black font-medium hover:text-emerald-700 transition-colors">Integraciones</a>
+            <a href="#process" className="text-black font-medium hover:text-emerald-700 transition-colors">Proceso</a>
+            <a href="#plans" className="text-black font-medium hover:text-emerald-700 transition-colors">Planes</a>
+            <a href="#faq" className="text-black font-medium hover:text-emerald-700 transition-colors">FAQ</a>
+            <a href="#blog" className="text-black font-medium hover:text-emerald-700 transition-colors">Blog</a>
+            <a href="/login" className="text-black font-medium hover:text-emerald-700 transition-colors">Accede clientes</a>
+          </nav>
+          <div className="flex items-center space-x-4">
+            <LanguageSwitcher />
+            <Button className="bg-emerald-700 text-white hover:bg-emerald-800 font-semibold">
+              Solicitar Demo
+            </Button>
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Abrir menú móvil"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
+        {/* Menú móvil */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white w-full py-4 flex flex-col text-black space-y-4 shadow">
+            <a href="#" className="font-medium">Inicio</a>
+            <a href="#differentiators" className="font-medium">¿Por qué Hunter?</a>
+            <a href="#integrations" className="font-medium">Integraciones</a>
+            <a href="#process" className="font-medium">Proceso</a>
+            <a href="#plans" className="font-medium">Planes</a>
+            <a href="#faq" className="font-medium">FAQ</a>
+            <a href="#blog" className="font-medium">Blog</a>
+            <a href="/login" className="font-medium">Accede clientes</a>
+            <Button className="bg-emerald-700 text-white hover:bg-emerald-800 font-semibold w-full mt-2">Solicitar Demo</Button>
+          </div>
+        )}
       </header>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-700 to-teal-800 text-white py-16 px-4">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+      {/* HERO */}
+      <section className="relative bg-gradient-to-br from-emerald-700 via-teal-700 to-emerald-900 text-white py-20 px-4">
+        <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between">
           <div className="max-w-xl">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('welcomeHunter') as string}</h1>
-            <p className="text-xl mb-4">{t('yourGoalsOurTarget') as string}</p>
-            <p className="mb-8 text-emerald-100">{t('heroDescription') as string}</p>
-            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-              <Button 
-                className="bg-white text-emerald-700 hover:bg-emerald-100"
-                onClick={() => handleEmailRequest("Try Hunter Now Request")}
-              >
-                {t('tryHunterNow') as string}
-              </Button>
-              <Button 
-                className="bg-white text-emerald-700 hover:bg-emerald-100"
-                onClick={() => handleEmailRequest("Free Demo Request from Hunter AI Website")}
-              >
-                {t('requestFreeDemo') as string}
-              </Button>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Bienvenido a Hunter, donde no esperamos oportunidades — las creamos y las cazamos.</h1>
+            <p className="text-2xl mb-4">Tus metas, nuestro blanco.</p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button className="bg-white text-emerald-700 hover:bg-gray-200 font-bold">Probar Hunter ahora</Button>
+              <Button className="bg-white text-emerald-700 hover:bg-gray-200 font-bold">Solicitar demo gratuita</Button>
             </div>
+            <div className="mt-8 text-sm text-emerald-100 font-medium">Plataforma super fácil &mdash; Solo 20 clientes por mes</div>
           </div>
-          <div className="w-full md:w-2/5 mt-8 md:mt-0 flex justify-center">
-            <img 
-              src="/lovable-uploads/77fc607d-62b5-4d09-b280-2ab87d9382cd.png" 
-              alt="Hunter AI Logo" 
-              className="max-w-full h-auto max-h-60"
-            />
+          <div className="flex-1 flex justify-center mb-12 md:mb-0">
+            <LogoWhite className="h-40 md:h-48" />
           </div>
         </div>
       </section>
 
-      {/* What is Hunter AI Section */}
-      <section id="features" className="py-16 px-4 bg-white">
-        <div className="container mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">{t('whatIsHunterAI') as string}</h2>
-          <p className="text-center max-w-3xl mx-auto mb-12 text-gray-700">
-            {t('whatIsHunterAIDesc') as string}
-          </p>
-          <div className="flex justify-center space-x-8 md:space-x-12 flex-wrap">
-            <div className="border-2 border-blue-500 p-4 rounded-lg w-14 h-14 md:w-16 md:h-16 flex items-center justify-center m-2">
-              <Instagram className="text-pink-500 w-8 h-8 md:w-10 md:h-10" />
-            </div>
-            <div className="border-2 border-blue-500 p-4 rounded-lg w-14 h-14 md:w-16 md:h-16 flex items-center justify-center m-2">
-              <Facebook className="text-blue-500 w-8 h-8 md:w-10 md:h-10" />
-            </div>
-            <div className="border-2 border-blue-500 p-4 rounded-lg w-14 h-14 md:w-16 md:h-16 flex items-center justify-center m-2">
-              <Linkedin className="text-blue-700 w-8 h-8 md:w-10 md:h-10" />
-            </div>
-            <div className="border-2 border-blue-500 p-4 rounded-lg w-14 h-14 md:w-16 md:h-16 flex items-center justify-center m-2">
-              <Twitter className="text-blue-400 w-8 h-8 md:w-10 md:h-10" />
-            </div>
-            <div className="border-2 border-blue-500 p-4 rounded-lg w-14 h-14 md:w-16 md:h-16 flex items-center justify-center m-2">
-              <MessageCircle className="text-green-500 w-8 h-8 md:w-10 md:h-10" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* DIFERENCIADORES */}
+      <div id="differentiators">
+        <DifferentiatorsSection />
+      </div>
 
-      {/* Key Benefits Section */}
-      <section className="py-16 px-4 bg-white">
+      {/* Videos de clientes (se incluye dentro de DifferentiatorsSection) */}
+
+      {/* INTEGRACIONES */}
+      <div id="integrations">
+        <IntegrationSection />
+      </div>
+
+      {/* PROCESO HUNTER AI PRO */}
+      <section id="process" className="py-16 px-4 bg-emerald-50">
         <div className="container mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">{t('keyBenefits') as string}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
-              <BenefitCard 
-                key={index}
-                icon={benefit.icon}
-                title={benefit.title}
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Proceso Hunter AI Pro</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {processSteps.map((step, idx) => (
+              <ProcessCard
+                key={idx}
+                icon={step.icon}
+                title={step.title}
+                description={step.description}
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* LOGOS EMPRESAS */}
+      <section className="bg-white">
+        <div className="container mx-auto py-12 px-4">
+          <h3 className="text-xl md:text-2xl font-bold mb-6 text-center">Empresas con las que trabajamos</h3>
+          <CompanyLogosCarousel />
+        </div>
+      </section>
+
+      {/* TESTIMONIOS */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">{t('testimonials') as string}</h2>
@@ -209,6 +186,7 @@ const Index = () => {
                     name={testimonial.name}
                     company={testimonial.company}
                   />
+                  <StarRating value={4} />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -229,14 +207,14 @@ const Index = () => {
               title={(t('basicPlan') as any).title}
               price={(t('basicPlan') as any).price}
               features={(t('basicPlan') as any).features}
-              buttonText={t('choosePlan') as string}
+              buttonText={'Reservar lugar'}
               onClick={() => handleEmailRequest(`Subscription Request: ${(t('basicPlan') as any).title} Plan`)}
             />
             <PlanCard
               title={(t('professionalPlan') as any).title}
               price={(t('professionalPlan') as any).price}
               features={(t('professionalPlan') as any).features}
-              buttonText={t('choosePlan') as string}
+              buttonText={'Reservar lugar'}
               isPrimary={true}
               onClick={() => handleEmailRequest(`Subscription Request: ${(t('professionalPlan') as any).title} Plan`)}
             />
@@ -244,15 +222,18 @@ const Index = () => {
               title={(t('businessPlan') as any).title}
               price={(t('businessPlan') as any).price}
               features={(t('businessPlan') as any).features}
-              buttonText={t('choosePlan') as string}
+              buttonText={'Reservar lugar'}
               onClick={() => handleEmailRequest(`Subscription Request: ${(t('businessPlan') as any).title} Plan`)}
             />
+          </div>
+          <div className="mt-8 text-center text-gray-600">
+            *Solo 20 clientes nuevos por mes para garantizar la calidad del servicio.
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section id="faq" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">{t('faq') as string}</h2>
           <FAQ items={t('faqItems') as any[]} />
@@ -277,7 +258,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <Logo className="mb-4" />
+              <LogoWhite className="mb-4" />
               <p className="mb-4 text-gray-400 max-w-xs">{t('whatIsHunterAIDesc') as string}</p>
             </div>
             
