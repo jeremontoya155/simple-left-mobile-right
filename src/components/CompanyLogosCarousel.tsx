@@ -1,48 +1,37 @@
 
 import React from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import CompanyLogoCard from "@/components/CompanyLogoCard";
-import { useLanguage } from "@/contexts/LanguageContext";
 
-// NEW: Los logos con fondo transparente
+// Logos with removed background
 const companyLogos = [
-  {
-    src: "/lovable-uploads/8857471c-c052-4474-bf67-337c4e1f0598.png",
-    alt: "CPG Recruitment",
-    nameKey: "company1" as const
-  },
-  {
-    src: "/lovable-uploads/d3fc04bd-ae52-41a9-9b0a-d03c5b403f66.png",
-    alt: "Lucky 8",
-    nameKey: "company2" as const
-  },
-  {
-    src: "/lovable-uploads/d6aa3023-5861-4c91-a75c-4fc2a7d7fd93.png",
-    alt: "Digital CEO Accelerator",
-    nameKey: "company3" as const
-  },
-  {
-    src: "/lovable-uploads/c6cb20ce-e60e-42b3-a188-f82e27b252e3.png",
-    alt: "Elite Ventures",
-    nameKey: "company4" as const
-  },
+  { src: "/lovable-uploads/4a277451-208b-4d65-9bec-8adee470ee5a.png", alt: "CPG Recruitment" },
+  { src: "/lovable-uploads/37052fce-a838-40ea-9b0e-ed026fa21016.png", alt: "Lucky 8" },
+  { src: "/lovable-uploads/6d9392a1-092a-46b9-9b6a-764900c609f5.png", alt: "Digital CEO Accelerator" },
+  { src: "/lovable-uploads/daaa6b48-631a-4e62-9a2c-1b53de78b883.png", alt: "Elite Ventures" },
 ];
 
 const CompanyLogosCarousel = () => {
-  const { language } = useLanguage();
-
   return (
-    <div className="w-full flex flex-col items-center pb-2 overflow-x-auto">
-      <div className="flex gap-6 justify-center w-full">
-        {companyLogos.map((logo, idx) => (
-          <CompanyLogoCard
-            key={idx}
-            src={logo.src}
-            alt={logo.alt}
-            nameKey={logo.nameKey}
-          />
-        ))}
-      </div>
+    <div className="w-full flex flex-col items-center pb-2">
+      <Carousel className="w-full max-w-xl mx-auto md:max-w-3xl lg:max-w-5xl">
+        <CarouselContent className="flex items-center">
+          {companyLogos.map((logo, idx) => (
+            <CarouselItem key={idx} className="flex-1 basis-1/2 md:basis-1/4 px-2">
+              <div className="rounded-3xl border border-emerald-100 bg-white/95 shadow-lg p-4 flex flex-col items-center justify-center hover:scale-105 hover:shadow-xl transition-all duration-300">
+                <div className="h-24 w-24 flex items-center justify-center overflow-hidden mb-1">
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-h-20 max-w-20 object-contain"
+                    draggable={false}
+                  />
+                </div>
+                <span className="text-emerald-800 text-base md:text-lg font-bold text-center drop-shadow">{logo.alt}</span>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </div>
   );
 };

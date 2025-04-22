@@ -1,8 +1,7 @@
-
 import React, { useState } from "react";
-import Navbar from "@/components/Navbar";
+import HomeHeader from "@/components/HomeHeader";
 import HeroSection from "@/components/HeroSection";
-import DifferentiatorsAccordion from "@/components/DifferentiatorsAccordion";
+import DifferentiatorsSection from "@/components/DifferentiatorsSection";
 import CompaniesSection from "@/components/CompaniesSection";
 import ProcessSection from "@/components/ProcessSection";
 import IntegrationSection from "@/components/IntegrationSection";
@@ -15,6 +14,7 @@ import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
 
   const handleEmailRequest = (subject: string) => {
@@ -25,9 +25,9 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-white/95 via-emerald-50 to-emerald-100">
-      <Navbar />
+      <HomeHeader mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       <HeroSection />
-      <DifferentiatorsAccordion />
+      <DifferentiatorsSection />
       <IntegrationSection />
       <ProcessSection />
       <CompaniesSection />
