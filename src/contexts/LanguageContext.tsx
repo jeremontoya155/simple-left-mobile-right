@@ -1,28 +1,27 @@
 
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-// Define the shape of our translation keys
-type TranslationKey = 
-  | 'home' 
-  | 'about' 
-  | 'products' 
-  | 'contact' 
-  | 'heroTitle' 
-  | 'heroDescription' 
-  | 'moreInfo' 
-  | 'channelsTitle' 
-  | 'softwareTitle' 
-  | 'softwareDescription' 
-  | 'functionalityTitle' 
-  | 'functionalityPills' 
-  | 'benefitsTitle' 
-  | 'benefitBoxes' 
-  | 'contactUs' 
-  | 'forAnyQuestion' 
-  | 'ourInstagram' 
-  | 'ourEmail' 
+// Add new translation keys for steps and companies
+type TranslationKey =
+  | 'home'
+  | 'about'
+  | 'products'
+  | 'contact'
+  | 'heroTitle'
+  | 'heroDescription'
+  | 'moreInfo'
+  | 'channelsTitle'
+  | 'softwareTitle'
+  | 'softwareDescription'
+  | 'functionalityTitle'
+  | 'functionalityPills'
+  | 'benefitsTitle'
+  | 'benefitBoxes'
+  | 'contactUs'
+  | 'forAnyQuestion'
+  | 'ourInstagram'
+  | 'ourEmail'
   | 'location'
-  // New translation keys
   | 'features'
   | 'plans'
   | 'requestDemo'
@@ -37,6 +36,10 @@ type TranslationKey =
   | 'step2'
   | 'step3'
   | 'step4'
+  | 'step1Desc'
+  | 'step2Desc'
+  | 'step3Desc'
+  | 'step4Desc'
   | 'keyBenefits'
   | 'benefit1'
   | 'benefit2'
@@ -56,12 +59,12 @@ type TranslationKey =
   | 'contactInfo'
   | 'quickLinks'
   | 'privacyPolicy'
-  | 'termsAndConditions';
+  | 'termsAndConditions'
+  | 'companies';
 
-// Translation data
+// Traducciones completas
 const translations = {
   en: {
-    // Navbar
     home: "Home",
     about: "About Us",
     products: "Products",
@@ -69,8 +72,7 @@ const translations = {
     features: "Features",
     plans: "Plans",
     requestDemo: "Request Demo",
-    
-    // Hero section
+
     heroTitle: "HUNTER ASSISTANTS",
     heroDescription: "We boost customer acquisition and conversion with artificial intelligence, automating multi-channel prospecting and lead management without interruption. For businesses or personal brands looking to attract customers in a sustainable and scalable way.",
     welcomeHunter: "Welcome to Hunter, where we don't wait for opportunities — we create and hunt them.",
@@ -78,26 +80,26 @@ const translations = {
     tryHunterNow: "Try Hunter Now",
     requestFreeDemo: "Request Free Demo",
     moreInfo: "I want more info",
-    
-    // What is Hunter AI section
+
     whatIsHunterAI: "What is Hunter AI?",
     whatIsHunterAIDesc: "We empower customer acquisition and conversion with artificial intelligence, automating prospecting and lead management across multiple channels, without interruption for companies or personal brands looking to attract customers in a sustainable and scalable way.",
-    
-    // How it works section
-    howItWorks: "How it Works",
+
+    howItWorks: "Process",
     step1: "Load ideal client profile",
+    step1Desc: "You will be able to upload a detailed profile of the client you are seeking to reach.",
     step2: "Create avatar",
-    step3: "Search and contact compatible profiles",
-    step4: "Automatic qualification and referral",
-    
-    // Key Benefits section
+    step2Desc: "We create an automated avatar to interact representing your brand.",
+    step3: "Search and contact",
+    step3Desc: "Smartly search for and contact compatible profiles.",
+    step4: "Qualification and referral",
+    step4Desc: "Automatically, the most qualified leads are forwarded and qualified.",
+
     keyBenefits: "Key Benefits",
     benefit1: "Message automation (100-300 daily)",
     benefit2: "Integration with multiple platforms",
     benefit3: "CRM and unified inbox",
     benefit4: "Scalability through multiple accounts",
-    
-    // Testimonials section
+
     testimonials: "Testimonials",
     testimonialsItems: [
       {
@@ -116,8 +118,7 @@ const translations = {
         company: "SaaS Enterprises"
       }
     ],
-    
-    // Plans and Pricing section
+
     plansAndPricing: "Plans and Pricing",
     basicPlan: {
       title: "Basic Plan",
@@ -153,8 +154,7 @@ const translations = {
       price: "$349/month"
     },
     choosePlan: "Choose Plan",
-    
-    // FAQ section
+
     faq: "Frequently Asked Questions",
     faqItems: [
       {
@@ -174,16 +174,14 @@ const translations = {
         answer: "Most clients start seeing significant results within the first 2-4 weeks of implementation, depending on their target market and campaign settings."
       }
     ],
-    
-    // Final CTA
+
     finalCTA: "You're one click away from your next hunt.",
     startNow: "Start Now",
-    
-    // Sections
+
     channelsTitle: "ON ALL YOUR SERVICE CHANNELS",
     softwareTitle: "THE SOFTWARE DOES THE WORK FOR YOU",
     softwareDescription: "It's a system designed to maximize results with strategic precision. Its ability to configure advanced parameters, customize strategies, and manage interactions in real-time will allow you to obtain up to 3,800 monthly contacts. With a sophisticated and intuitive dashboard, you'll be able to monitor each stage of the process. Hunter will boost your growth in an intelligent and controlled manner.",
-    
+
     functionalityTitle: "TYPES OF FUNCTIONALITIES",
     functionalityPills: [
       "Prospect Management",
@@ -194,7 +192,7 @@ const translations = {
       "Strategic Automation",
       "Engagement Increase"
     ],
-    
+
     benefitsTitle: "BENEFITS",
     benefitBoxes: [
       {
@@ -222,8 +220,7 @@ const translations = {
         description: "Get insights from various strategies, adjusting performance variables."
       }
     ],
-    
-    // Footer
+
     contactUs: "Contact Us",
     contactInfo: "Contact Information",
     quickLinks: "Quick Links",
@@ -232,10 +229,11 @@ const translations = {
     forAnyQuestion: "For any questions, write to:",
     ourInstagram: "Our Instagram",
     ourEmail: "Our Email",
-    location: "Córdoba, Argentina"
+    location: "Córdoba, Argentina",
+
+    companies: "Companies we work with"
   },
   es: {
-    // Navbar
     home: "Inicio",
     about: "Nosotros",
     products: "Productos",
@@ -243,35 +241,34 @@ const translations = {
     features: "Características",
     plans: "Planes",
     requestDemo: "Solicitar Demo",
-    
-    // Hero section
+
     heroTitle: "HUNTER ASSISTANTS",
-    heroDescription: " Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads en múlticanal, sin interrupción. Para empresas o marcas personales que buscan atraer clientes de manera sostenible y escalable.",
+    heroDescription: "Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads en múlticanal, sin interrupción. Para empresas o marcas personales que buscan atraer clientes de manera sostenible y escalable.",
     welcomeHunter: "Bienvenido a Hunter, donde no esperamos oportunidades — las creamos y las cazamos.",
     yourGoalsOurTarget: "Tus metas, nuestro blanco.",
     tryHunterNow: "Probar Hunter ahora",
     requestFreeDemo: "Solicitar demo gratuita",
     moreInfo: "Quiero más info",
-    
-    // What is Hunter AI section
+
     whatIsHunterAI: "¿Qué es Hunter AI?",
     whatIsHunterAIDesc: "Potenciamos la captación y conversión de clientes con inteligencia artificial, automatizando la prospección y gestión de leads en múlticanal, sin interrupción para empresas o marcas personales que buscan atraer clientes de manera sostenible y escalable.",
-    
-    // How it works section
-    howItWorks: "Cómo Funciona",
+
+    howItWorks: "Proceso",
     step1: "Carga del perfil del cliente ideal",
+    step1Desc: "Podrás cargar un perfil detallado del cliente que buscas alcanzar.",
     step2: "Creación del avatar",
-    step3: "Búsqueda y contacto con perfiles compatibles",
-    step4: "Calificación y derivación automática",
-    
-    // Key Benefits section
+    step2Desc: "Creamos un avatar automatizado para interactuar representando a tu marca.",
+    step3: "Búsqueda y contacto",
+    step3Desc: "Buscar y contactar de forma inteligente perfiles compatibles.",
+    step4: "Calificación y derivación",
+    step4Desc: "Automáticamente se derivan y califican los leads más calificados.",
+
     keyBenefits: "Beneficios Clave",
     benefit1: "Automatización de mensajes (100-300 diarios)",
     benefit2: "Integración con múltiples plataformas",
     benefit3: "CRM y bandeja unificada",
     benefit4: "Escalabilidad mediante múltiples cuentas",
-    
-    // Testimonials section
+
     testimonials: "Testimonios",
     testimonialsItems: [
       {
@@ -290,8 +287,7 @@ const translations = {
         company: "SaaS Enterprises"
       }
     ],
-    
-    // Plans and Pricing section
+
     plansAndPricing: "Planes y Precios",
     basicPlan: {
       title: "Plan Básico",
@@ -327,8 +323,7 @@ const translations = {
       price: "$349/mes"
     },
     choosePlan: "Elegir Plan",
-    
-    // FAQ section
+
     faq: "Preguntas Frecuentes",
     faqItems: [
       {
@@ -348,16 +343,14 @@ const translations = {
         answer: "La mayoría de los clientes comienzan a ver resultados significativos dentro de las primeras 2-4 semanas de implementación, dependiendo de su mercado objetivo y configuración de campaña."
       }
     ],
-    
-    // Final CTA
+
     finalCTA: "Estás a un clic de tu próxima cacería.",
     startNow: "Empezar ahora",
-    
-    // Sections
+
     channelsTitle: "EN TODOS TUS CANALES DE ATENCIÓN",
     softwareTitle: "EL SOFTWARE HACE EL TRABAJO POR TI",
     softwareDescription: "Es un sistema diseñado para maximizar resultados con precisión estratégica su capacidad para configurar parámetros avanzados, personalizar estrategias y gestionar interacciones en tiempo real te permitirá obtener hasta 3.800 contactos mensuales. Con un sofisticado e intuitivo dashboard podrás monitorear cada etapa de proceso, Hunter impulsará tu crecimiento de manera inteligente y controlada.",
-    
+
     functionalityTitle: "TIPOS DE FUNCIONALIDADES",
     functionalityPills: [
       "Gestión prospecto",
@@ -368,7 +361,7 @@ const translations = {
       "Automatización Estratégica",
       "Aumento del Engagement"
     ],
-    
+
     benefitsTitle: "BENEFICIOS",
     benefitBoxes: [
       {
@@ -396,8 +389,7 @@ const translations = {
         description: "Consigue insights de diversas estrategias, ajustando variables de rendimiento."
       }
     ],
-    
-    // Footer
+
     contactUs: "Contáctanos",
     contactInfo: "Información de Contacto",
     quickLinks: "Enlaces Rápidos",
@@ -406,13 +398,14 @@ const translations = {
     forAnyQuestion: "Para cualquier duda escribir a:",
     ourInstagram: "Nuestro Instagram",
     ourEmail: "Nuestro Email",
-    location: "Córdoba, Argentina"
+    location: "Córdoba, Argentina",
+
+    companies: "Empresas con las que trabajamos"
   }
 };
 
 type Language = 'en' | 'es';
 
-// Define a union type for possible return values from the translation function
 type TranslationValue = string | string[] | { title: string; description: string }[] | any;
 
 interface LanguageContextType {
@@ -424,7 +417,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('es');
 
   const t = (key: TranslationKey): TranslationValue => {
     return translations[language][key];

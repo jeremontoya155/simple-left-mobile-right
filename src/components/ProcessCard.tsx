@@ -1,41 +1,45 @@
 
-import React, { useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 interface ProcessCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
-  expandable?: boolean;
+  expanded: boolean;
+  onToggle: () => void;
 }
 
-const ProcessCard = ({ icon, title, description, expandable }: ProcessCardProps) => {
-  const [expanded, setExpanded] = useState(false);
+const ProcessCard = ({ icon, title, description, expanded, onToggle }: ProcessCardProps) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [maxHeight, setMaxHeight] = useState("0px");
 
-  // Si el prop "expandable" es true, el texto se revela sólo al hacer click.
-  if (expandable) {
-    return (
-      <div
-        className={`relative bg-white rounded-lg shadow-md p-6 cursor-pointer group transition-all duration-300 hover:shadow-xl hover:-translate-y-2`}
-        onClick={() => setExpanded((prev) => !prev)}
-        tabIndex={0}
-        role="button"
-        onKeyPress={e => e.key === 'Enter' && setExpanded(prev => !prev)}
-      >
-        <div className="text-emerald-700 mb-4">{icon}</div>
-        <h4 className="font-bold text-lg mb-2">{title}</h4>
-        <div className={`overflow-hidden transition-max-h duration-300 ${expanded ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
-          <p className="text-gray-600 mt-2">{description}</p>
-        </div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (contentRef.current) {
+      setMaxHeight(expanded ? contentRef.current.scrollHeight + "px" : "0px");
+    }
+  }, [expanded, description]);
 
-  // ...comportamiento clásico (por compatibilidad, aunque nunca se usa en Index.tsx ahora)
   return (
-    <div className="relative bg-white rounded-lg shadow-md p-6 cursor-pointer group transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
+    <div
+      className={`relative bg-white rounded-lg shadow-md p-6 cursor-pointer group transition-all duration-300 hover:shadow-xl hover:-translate-y-2`}
+      onClick={onToggle}
+      tabIndex={0}
+      role="button"
+      onKeyPress={e => e.key === 'Enter' && onToggle()}
+      style={{ transition: "box-shadow 0.2s, transform 0.2s" }}
+    >
       <div className="text-emerald-700 mb-4">{icon}</div>
       <h4 className="font-bold text-lg mb-2">{title}</h4>
-      <p className="text-gray-600 opacity-70">{description}</p>
+      <div
+        ref={contentRef}
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out`}
+        style={{
+          maxHeight,
+          opacity: expanded ? 1 : 0,
+        }}
+      >
+        <p className="text-gray-600 mt-2">{description}</p>
+      </div>
     </div>
   );
 };
