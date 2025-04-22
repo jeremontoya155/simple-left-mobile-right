@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -88,17 +89,12 @@
   border-radius: 1.5rem;
 }
 
-/* Sombra más elegante a los logos de empresas */
-.logo-shadow {
-  box-shadow: 0 4px 32px 0 rgba(50,160,120,0.11), 0 1.5px 4px 0 rgba(20,40,40,0.08);
-}
-
 /* Navbar glassmorphism zasbot */
 .nav-glass {
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid #e1e6eb18;
-  box-shadow: 0 2px 16px 0 rgba(28,52,79,0.09);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(225,230,235,0.1);
+  box-shadow: 0 2px 20px 0 rgba(28,52,79,0.1);
   border-radius: 0 0 1.6rem 1.6rem;
 }
 
@@ -125,6 +121,24 @@
 .story-link:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+/* Animations */
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.hover-lift {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* General improvements on responsiveness and card hover */

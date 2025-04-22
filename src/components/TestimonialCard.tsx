@@ -23,12 +23,12 @@ const TestimonialCard = ({
   image 
 }: TestimonialCardProps) => {
   return (
-    <div className="p-6 rounded-lg bg-white shadow-md hover:shadow-lg transition-shadow mx-2 my-4 min-h-[280px] flex flex-col">
+    <div className="p-6 rounded-lg bg-white shadow-md hover:shadow-xl transition-shadow mx-2 my-4 min-h-[280px] flex flex-col transform hover:scale-105 transition-transform duration-300 border border-emerald-100">
       <div className="mb-3 flex-grow">
         <p className="text-gray-700 italic">"{quote}"</p>
       </div>
       <div className="flex items-center mt-4">
-        <div className="w-12 h-12 rounded-full flex items-center justify-center mr-3 overflow-hidden">
+        <div className="w-12 h-12 rounded-full flex items-center justify-center mr-3 overflow-hidden shadow-md border-2 border-emerald-200">
           {image ? (
             <img src={image} alt={name} className="w-full h-full object-cover" />
           ) : (

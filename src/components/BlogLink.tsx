@@ -1,15 +1,18 @@
 
-import React from "react";
-import { ArrowRight } from "lucide-react";
+import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-const BlogLink = () => (
-  <a
-    href="/blog"
-    className="text-black font-medium hover:text-emerald-700 transition-colors group flex items-center"
-  >
-    Blog
-    <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-  </a>
-);
+const BlogLink = () => {
+  const { language } = useLanguage();
+  
+  return (
+    <a 
+      href="/blog" 
+      className="story-link text-black font-medium hover:text-emerald-700 transition-colors flex items-center"
+    >
+      <span className="mr-1">{language === 'es' ? 'Blog' : 'Blog'}</span>
+    </a>
+  );
+};
 
 export default BlogLink;

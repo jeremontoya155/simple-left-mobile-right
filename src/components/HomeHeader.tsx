@@ -26,7 +26,6 @@ const HomeHeader = ({ mobileMenuOpen, setMobileMenuOpen }: HomeHeaderProps) => {
           <a href="#plans" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Planes" : "Plans"}</a>
           <a href="#faq" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">FAQ</a>
           <BlogLink />
-          <a href="/login" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === 'es' ? "Accede clientes" : "Client login"}</a>
         </nav>
         <div className="flex items-center space-x-2 md:space-x-4">
           <LanguageSwitcher />
@@ -52,7 +51,6 @@ const HomeHeader = ({ mobileMenuOpen, setMobileMenuOpen }: HomeHeaderProps) => {
           <a href="#plans" className="font-medium">{language === 'es' ? "Planes" : "Plans"}</a>
           <a href="#faq" className="font-medium">FAQ</a>
           <BlogLink />
-          <a href="/login" className="font-medium">{language === 'es' ? "Accede clientes" : "Client login"}</a>
           <Button className="bg-black text-white hover:bg-gray-800 font-semibold w-full mt-2 group">
             {language === 'es' ? "Solicitar Demo" : "Request Demo"}
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

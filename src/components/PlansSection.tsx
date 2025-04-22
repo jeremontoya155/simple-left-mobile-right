@@ -8,9 +8,11 @@ const PlansSection = ({ handleEmailRequest }: { handleEmailRequest: (subject: st
   const { language } = useLanguage();
 
   return (
-    <section id="plans" className="py-16 px-4 bg-white">
+    <section id="plans" className="py-16 px-4 bg-gradient-to-b from-emerald-50 to-white">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">{language === 'es' ? "¿Cuál es el mejor plan para ti?" : "Which is the best plan for you?"}</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+          {language === 'es' ? "¿Cuál es el mejor plan para ti?" : "Which is the best plan for you?"}
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
           <PlanCard
             title={language === 'es' ? "Freemium" : "Freemium"}
@@ -27,7 +29,7 @@ const PlansSection = ({ handleEmailRequest }: { handleEmailRequest: (subject: st
           />
           <PlanCard
             title={language === 'es' ? "Plan Base" : "Basic Plan"}
-            price={language === 'es' ? "Freemium" : "Freemium"}
+            price={language === 'es' ? "US$99/mes" : "US$99/month"}
             features={[
               language === 'es' ? "Automatización de 50 mensajes diarios" : "50 automated messages per day",
               language === 'es' ? "Integración con 1 plataforma" : "1 platform integration",
@@ -35,11 +37,11 @@ const PlansSection = ({ handleEmailRequest }: { handleEmailRequest: (subject: st
               language === 'es' ? "Análisis básico de resultados" : "Basic analytics",
             ]}
             buttonText={language === 'es' ? "Reservar lugar" : "Reserve spot"}
-            onClick={() => handleEmailRequest("Subscription Request: Plan Base")}
+            onClick={() => handleEmailRequest("Subscription Request: Basic Plan")}
           />
           <PlanCard
             title={language === 'es' ? "Plan Premium" : "Premium Plan"}
-            price={language === 'es' ? "Consultar precio" : "Contact for pricing"}
+            price={language === 'es' ? "US$199/mes" : "US$199/month"}
             features={[
               language === 'es' ? "Automatización de 200 mensajes diarios" : "200 automated messages per day",
               language === 'es' ? "Integración con 3 plataformas" : "3 platform integrations",
@@ -49,7 +51,7 @@ const PlansSection = ({ handleEmailRequest }: { handleEmailRequest: (subject: st
             ]}
             buttonText={language === 'es' ? "Reservar lugar" : "Reserve spot"}
             isPrimary={true}
-            onClick={() => handleEmailRequest("Subscription Request: Plan Premium")}
+            onClick={() => handleEmailRequest("Subscription Request: Premium Plan")}
           />
           <PlanCard
             title={language === 'es' ? "Plan Enterprise" : "Enterprise Plan"}
@@ -63,7 +65,7 @@ const PlansSection = ({ handleEmailRequest }: { handleEmailRequest: (subject: st
               language === 'es' ? "Analítica avanzada con IA" : "Advanced analytics with AI"
             ]}
             buttonText={language === 'es' ? "Reservar lugar" : "Reserve spot"}
-            onClick={() => handleEmailRequest("Subscription Request: Plan Enterprise")}
+            onClick={() => handleEmailRequest("Subscription Request: Enterprise Plan")}
           />
         </div>
         <div className="mt-8 text-center flex items-center justify-center text-gray-600">

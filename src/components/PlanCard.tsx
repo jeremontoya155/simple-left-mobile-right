@@ -15,7 +15,11 @@ interface PlanCardProps {
 const PlanCard = ({ title, price, features, buttonText, isPrimary = false, onClick }: PlanCardProps) => {
   return (
     <div
-      className={`rounded-lg p-6 shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-emerald-100 ${isPrimary ? 'bg-emerald-50 border-2 border-black' : 'bg-white border border-gray-200'} `}
+      className={`rounded-lg p-6 shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-xl ${
+        isPrimary 
+        ? 'bg-gradient-to-br from-emerald-50 to-white border-2 border-black z-10 relative'
+        : 'bg-white border border-gray-200'
+      }`}
       style={{ minHeight: 330, minWidth: 220 }}
     >
       <h3 className="text-2xl font-bold mb-2">{title}</h3>
@@ -29,7 +33,7 @@ const PlanCard = ({ title, price, features, buttonText, isPrimary = false, onCli
         ))}
       </ul>
       <Button
-        className={`w-full group ${isPrimary ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-emerald-600 hover:bg-emerald-700'}`}
+        className={`w-full group ${isPrimary ? 'bg-black hover:bg-gray-800 text-white' : 'bg-emerald-600 hover:bg-emerald-700 text-white'}`}
         onClick={onClick}
       >
         {buttonText}
