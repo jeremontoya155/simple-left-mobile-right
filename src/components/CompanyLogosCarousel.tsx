@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import CompanyLogoCard from "@/components/CompanyLogoCard";
@@ -8,22 +9,22 @@ const companyLogos = [
   {
     src: "/lovable-uploads/8857471c-c052-4474-bf67-337c4e1f0598.png",
     alt: "CPG Recruitment",
-    nameKey: "company1"
+    nameKey: "company1" as const
   },
   {
     src: "/lovable-uploads/d3fc04bd-ae52-41a9-9b0a-d03c5b403f66.png",
     alt: "Lucky 8",
-    nameKey: "company2"
+    nameKey: "company2" as const
   },
   {
     src: "/lovable-uploads/d6aa3023-5861-4c91-a75c-4fc2a7d7fd93.png",
     alt: "Digital CEO Accelerator",
-    nameKey: "company3"
+    nameKey: "company3" as const
   },
   {
     src: "/lovable-uploads/c6cb20ce-e60e-42b3-a188-f82e27b252e3.png",
     alt: "Elite Ventures",
-    nameKey: "company4"
+    nameKey: "company4" as const
   },
 ];
 
