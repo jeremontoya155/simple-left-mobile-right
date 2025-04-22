@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   Facebook, Instagram, Linkedin, Twitter, Menu, X, Mail, Phone, MapPin, ChevronRight, UserPlus, Users, Search,
@@ -53,7 +52,7 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Navbar - Updated to match Zasbot style */}
+      {/* Navbar */}
       <header className="bg-white border-b border-gray-100 text-black p-6 sticky top-0 z-10">
         <div className="container mx-auto flex justify-between items-center">
           <Logo dark={true} className="h-8 md:h-10" />
@@ -117,12 +116,6 @@ const Index = () => {
                   Solicitar demo gratuita
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </div>
-              <div className="absolute -right-14 -top-10 rotate-12 hidden md:block">
-                <div className="flex items-center">
-                  <p className="text-lg text-white italic">¡Y mucho pero mucho más!</p>
-                  <ArrowRight className="ml-2 h-10 w-10 text-white transform rotate-45" />
-                </div>
               </div>
             </div>
             <div className="mt-8 text-sm md:text-base text-emerald-100 font-medium flex items-center">
