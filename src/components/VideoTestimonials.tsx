@@ -31,13 +31,13 @@ const VideoTestimonials = () => {
           <CarouselContent>
             {videos.map((video, i) => (
               <CarouselItem key={i} className="basis-full md:basis-1/2 lg:basis-1/2">
-                <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-black">
+                <div className="overflow-hidden bg-black">
                   <iframe
                     src={video.src}
                     title={video.name}
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className="w-full h-[70vh] md:h-[80vh] transform transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-[70vh] md:h-[80vh] object-cover"
                   />
                 </div>
               </CarouselItem>

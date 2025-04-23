@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Instagram, Facebook, Linkedin, Twitter, Mail, Phone, MapPin, ChevronRight } from "lucide-react";
 import LogoWhite from "@/components/ui/LogoWhite";
@@ -38,10 +39,6 @@ const HomeFooter = () => {
               <div className="flex items-start">
                 <Phone className="w-5 h-5 mr-3 mt-1 text-emerald-500" />
                 <p>+14244134628</p>
-              </div>
-              <div className="flex items-start">
-                <MapPin className="w-5 h-5 mr-3 mt-1 text-emerald-500" />
-                <p>{t('location') as string}</p>
               </div>
             </div>
           </div>
