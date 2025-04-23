@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -21,13 +22,25 @@ const HomeHeader = ({ mobileMenuOpen, setMobileMenuOpen }: HomeHeaderProps) => {
           <Link to="/">
             <Logo dark={true} className="h-8 md:h-10" />
           </Link>
-          <nav className="hidden md:flex space-x-8">
-            <Link to="/" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{t("home")}</Link>
-            <Link to="/#differentiators" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === "es" ? "Sobre nosotros" : "About us"}</Link>
-            <Link to="/#integrations" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === "es" ? "Integraciones" : "Integrations"}</Link>
-            <Link to="/#process" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{t("howItWorks")}</Link>
-            <Link to="/#plans" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{t("plans")}</Link>
-            <Link to="/#faq" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">FAQ</Link>
+          <nav className="hidden md:flex space-x-4">
+            <Link to="/" className="inline-flex items-center px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-black font-medium group">
+              {t("home")}
+            </Link>
+            <Link to="/#differentiators" className="inline-flex items-center px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-black font-medium group">
+              {language === "es" ? "Sobre nosotros" : "About us"}
+            </Link>
+            <Link to="/#integrations" className="inline-flex items-center px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-black font-medium group">
+              {language === "es" ? "Integraciones" : "Integrations"}
+            </Link>
+            <Link to="/#process" className="inline-flex items-center px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-black font-medium group">
+              {t("howItWorks")}
+            </Link>
+            <Link to="/#plans" className="inline-flex items-center px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-black font-medium group">
+              {t("plans")}
+            </Link>
+            <Link to="/#faq" className="inline-flex items-center px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors text-black font-medium group">
+              FAQ
+            </Link>
             <BlogLink />
           </nav>
           <div className="flex items-center space-x-2 md:space-x-4">
@@ -47,12 +60,12 @@ const HomeHeader = ({ mobileMenuOpen, setMobileMenuOpen }: HomeHeaderProps) => {
         </div>
         {mobileMenuOpen && (
           <div className="md:hidden bg-white w-full py-4 flex flex-col text-black space-y-4 shadow mt-2 rounded-b-xl z-30">
-            <Link to="/" className="font-medium">{t("home")}</Link>
-            <Link to="/#differentiators" className="font-medium">{language === "es" ? "Sobre nosotros" : "About us"}</Link>
-            <Link to="/#integrations" className="font-medium">{language === "es" ? "Integraciones" : "Integrations"}</Link>
-            <Link to="/#process" className="font-medium">{t("howItWorks")}</Link>
-            <Link to="/#plans" className="font-medium">{t("plans")}</Link>
-            <Link to="/#faq" className="font-medium">FAQ</Link>
+            <Link to="/" className="px-4 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium">{t("home")}</Link>
+            <Link to="/#differentiators" className="px-4 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium">{language === "es" ? "Sobre nosotros" : "About us"}</Link>
+            <Link to="/#integrations" className="px-4 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium">{language === "es" ? "Integraciones" : "Integrations"}</Link>
+            <Link to="/#process" className="px-4 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium">{t("howItWorks")}</Link>
+            <Link to="/#plans" className="px-4 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium">{t("plans")}</Link>
+            <Link to="/#faq" className="px-4 py-2 rounded-md hover:bg-gray-100 transition-colors font-medium">FAQ</Link>
             <BlogLink />
             <Button className="bg-black text-white hover:bg-gray-800 font-semibold w-full mt-2 group">
               {t("requestDemo")}
