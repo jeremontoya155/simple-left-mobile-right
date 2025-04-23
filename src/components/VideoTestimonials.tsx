@@ -1,29 +1,57 @@
 
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const videos = [
-  { src: "https://www.youtube.com/embed/DXUAyRRkI6k", name: "Cliente 1" },
-  { src: "https://www.youtube.com/embed/sBws8MSXN7A", name: "Cliente 2" },
-  { src: "https://www.youtube.com/embed/ysz5S6PUM-U", name: "Cliente 3" },
+  { 
+    src: "https://www.youtube.com/embed/_yAuXNyMI34", 
+    name: "Sven" 
+  },
+  { 
+    src: "https://www.youtube.com/embed/NY-kRFbM6UM", 
+    name: "Jemelin" 
+  },
+  { 
+    src: "https://www.youtube.com/embed/Nr7ugyI0OWc", 
+    name: "Patricia" 
+  }
 ];
 
-const VideoTestimonials = () => (
-  <div>
-    <h3 className="text-2xl font-bold mb-8">Experiencias de nuestros clientes</h3>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {videos.map((video, i) => (
-        <div key={i} className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-black aspect-video group">
-          <iframe
-            src={video.src}
-            title={video.name}
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-48 md:h-64 transform transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-);
+const VideoTestimonials = () => {
+  const { language } = useLanguage();
+  
+  return (
+    <section className="py-16 px-4 bg-gradient-to-b from-gray-50 to-emerald-50">
+      <div className="container mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+          {language === 'es' ? "Experiencias" : "Experiences"}
+        </h2>
+        <Carousel className="max-w-5xl mx-auto">
+          <CarouselContent>
+            {videos.map((video, i) => (
+              <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/2">
+                <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-black aspect-video group p-2">
+                  <iframe
+                    src={video.src}
+                    title={video.name}
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-48 md:h-64 transform transition-transform duration-300 group-hover:scale-105 rounded-lg"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="flex justify-center mt-6">
+            <CarouselPrevious className="mr-2 bg-emerald-600 text-white hover:bg-emerald-700" />
+            <CarouselNext className="ml-2 bg-emerald-600 text-white hover:bg-emerald-700" />
+          </div>
+        </Carousel>
+      </div>
+    </section>
+  );
+};
 
 export default VideoTestimonials;
+

@@ -12,6 +12,7 @@ import HomeFooter from "@/components/HomeFooter";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import VideoTestimonials from "@/components/VideoTestimonials";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -33,12 +34,12 @@ const Index = () => {
       <IntegrationSection />
       <ProcessSection />
       <CompaniesSection />
+      <VideoTestimonials />
       <TestimonialsSection />
       <PlansSection handleEmailRequest={handleEmailRequest} />
       <FAQSection />
       <section className="py-16 px-4 bg-transparent text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">{language === 'es' ? 'Suscribirse a novedades' : 'Subscribe to news'}</h2>
           <Button
             className="bg-white text-black hover:bg-emerald-100 px-8 py-6 text-lg group"
             onClick={() => handleEmailRequest("Subscribe Request from Hunter AI Website")}
