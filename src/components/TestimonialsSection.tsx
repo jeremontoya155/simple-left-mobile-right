@@ -7,11 +7,11 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const TestimonialsSection = () => {
   const { t, language } = useLanguage();
 
-  // Corrected order: Richi, Sven, Carmela
+  // Corrected order: Richi, Sven, Carmela with correct images
   const testimonialImages = [
     "/lovable-uploads/0127d549-a27b-4615-a14b-04a704216a08.png",   // Richi Barret
-    "/lovable-uploads/c0a35f54-9e4e-44c4-81f2-b13dc57f24db.png",   // Sven Schelenz
-    "/lovable-uploads/1e06f8bb-6162-420f-8ce0-ad3da5692d4d.png"    // Carmela Rodriguez
+    "/lovable-uploads/f6386996-3b0a-492f-9b99-685be919da92.png",   // Sven Schelenz (corrected image)
+    "/lovable-uploads/934748dc-1ef6-4358-b48f-08dcf47c217e.png"    // Carmela Rodriguez (corrected image)
   ];
 
   return (
