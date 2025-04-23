@@ -9,9 +9,9 @@ const TestimonialsSection = () => {
 
   // Define the image paths for each testimonial
   const testimonialImages = [
-    "/lovable-uploads/063b1481-a6fa-4a1c-a1eb-7f0484a25fbe.png",   // Carmela Rodriguez
+    "/lovable-uploads/b622bedd-38fd-4dd1-87c9-190a671633d6.png",   // Carmela Rodriguez
     "/lovable-uploads/7876da0e-7964-4d97-8dd2-09c79c6ace36.png",   // Richi Barret
-    "/lovable-uploads/b622bedd-38fd-4dd1-87c9-190a671633d6.png"    // Sven Schelenz
+    "/lovable-uploads/063b1481-a6fa-4a1c-a1eb-7f0484a25fbe.png"    // Sven Schelenz
   ];
 
   return (
