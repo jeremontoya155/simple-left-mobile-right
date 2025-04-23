@@ -7,6 +7,13 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const TestimonialsSection = () => {
   const { t, language } = useLanguage();
 
+  // Define the image paths for each testimonial
+  const testimonialImages = [
+    "/lovable-uploads/063b1481-a6fa-4a1c-a1eb-7f0484a25fbe.png",   // Carmela Rodriguez
+    "/lovable-uploads/7876da0e-7964-4d97-8dd2-09c79c6ace36.png",   // Richi Barret
+    "/lovable-uploads/b622bedd-38fd-4dd1-87c9-190a671633d6.png"    // Sven Schelenz
+  ];
+
   return (
     <section className="py-16 px-4 bg-gradient-to-b from-gray-50 to-emerald-50">
       <div className="container mx-auto">
@@ -21,7 +28,7 @@ const TestimonialsSection = () => {
                   quote={testimonial.quote}
                   name={testimonial.name}
                   company={testimonial.company}
-                  image={index % 2 === 0 ? "/lovable-uploads/934748dc-1ef6-4358-b48f-08dcf47c217e.png" : "/lovable-uploads/0a2153e7-a94d-4b56-b0fb-a3f2406be70c.png"}
+                  image={testimonialImages[index]}
                 />
               </CarouselItem>
             ))}
