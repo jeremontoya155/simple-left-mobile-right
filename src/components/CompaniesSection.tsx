@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
@@ -10,6 +11,10 @@ const COMPANY_IMAGES = [
   "/lovable-uploads/39568798-630a-4327-8fc2-45f6a1dc5971.png", // LR
   "/lovable-uploads/e0906a3c-5141-4088-afb2-60391c99bc22.png", // Innotion Holdings
   "/lovable-uploads/7c1d344c-64b1-4a71-8c6d-83188c7345a1.png", // The Digital CEO Accelerator
+  "/lovable-uploads/6a3d649c-9efc-472b-8bbd-4ee5f49c8278.png", // G Logo
+  "/lovable-uploads/7b79d3fc-dcf1-413b-8f8f-4ba329223879.png", // Zarge
+  "/lovable-uploads/4428b605-cf09-42fc-9a6e-09b76e7faef0.png", // Zhen
+  "/lovable-uploads/f6386996-3b0a-492f-9b99-685be919da92.png", // Ephalogic
 ];
 
 const CompaniesSection = () => {
@@ -20,7 +25,7 @@ const CompaniesSection = () => {
     <section className="bg-white py-12">
       <div className="container mx-auto py-12 px-4">
         <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center animate-fade-in">
-          {t("companies")}
+          {t('language') === 'es' ? 'Empresas que confiaron en nosotros' : 'Companies that trusted us'}
         </h3>
         <Carousel
           opts={{
