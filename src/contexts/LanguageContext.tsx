@@ -1,7 +1,5 @@
-
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-// Add new translation keys for steps and companies
 type TranslationKey =
   | 'home'
   | 'about'
@@ -62,11 +60,44 @@ type TranslationKey =
   | 'termsAndConditions'
   | 'companies';
 
-// Traducciones completas
+type Language = 'en' | 'es';
+
+type TranslationValue = string | string[] | { title: string; description: string }[] | any;
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: TranslationKey) => TranslationValue;
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>('es');
+
+  const t = (key: TranslationKey): TranslationValue => {
+    return translations[language][key];
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};
+
 const translations = {
   en: {
     home: "Home",
-    about: "About Us",
+    about: "About",
     products: "Products",
     contact: "Contact",
     features: "Features",
@@ -103,19 +134,19 @@ const translations = {
     testimonials: "Testimonials",
     testimonialsItems: [
       {
-        quote: "Hunter AI transformed our lead generation process completely. We now reach 3x more qualified prospects with half the effort.",
-        name: "John Smith",
-        company: "Marketing Solutions Inc."
+        quote: "Hunter AI's automation capabilities have saved us countless hours of manual work while improving our conversion rates.",
+        name: "Richi Barret",
+        company: "Zarge Real State"
       },
       {
-        quote: "The automation capabilities of Hunter have saved us countless hours of manual work while improving our conversion rates.",
-        name: "Sarah Johnson",
-        company: "Growth Partners LLC"
+        quote: "Hunter AI completely transformed our lead generation process. We now reach 3x more qualified prospects with half the effort.",
+        name: "Carmela Rodriguez",
+        company: "Printafeel Co"
       },
       {
-        quote: "Since implementing Hunter AI, our sales team can focus on closing deals rather than prospecting. Game changer!",
-        name: "Michael Rodriguez",
-        company: "SaaS Enterprises"
+        quote: "Since implementing Hunter AI, our sales team can focus on closing deals rather than prospecting. A total game changer!",
+        name: "Sven Schelenz",
+        company: "Liberty4visions"
       }
     ],
 
@@ -231,11 +262,11 @@ const translations = {
     ourEmail: "Our Email",
     location: "Córdoba, Argentina",
 
-    companies: "Companies we work with"
+    companies: "Companies that trusted us"
   },
   es: {
     home: "Inicio",
-    about: "Nosotros",
+    about: "About",
     products: "Productos",
     contact: "Contacto",
     features: "Características",
@@ -272,19 +303,19 @@ const translations = {
     testimonials: "Testimonios",
     testimonialsItems: [
       {
+        quote: "Las capacidades de automatización de Hunter nos han ahorrado incontables horas de trabajo manual mientras mejoraban nuestras tasas de conversión",
+        name: "Richi Barret",
+        company: "Zarge Real State"
+      },
+      {
         quote: "Hunter AI transformó completamente nuestro proceso de generación de leads. Ahora alcanzamos 3 veces más prospectos calificados con la mitad del esfuerzo.",
-        name: "Juan Pérez",
-        company: "Marketing Solutions Inc."
+        name: "Carmela Rodriguez",
+        company: "Printafeel Co"
       },
       {
-        quote: "Las capacidades de automatización de Hunter nos han ahorrado incontables horas de trabajo manual mientras mejoraban nuestras tasas de conversión.",
-        name: "Sara Rodríguez",
-        company: "Growth Partners LLC"
-      },
-      {
-        quote: "Desde que implementamos Hunter AI, nuestro equipo de ventas puede concentrarse en cerrar tratos en lugar de buscar prospectos. ¡Un cambio radical!",
-        name: "Miguel González",
-        company: "SaaS Enterprises"
+        quote: "Desde que implementamos Hunter AI, nuestro equipo de ventas puede concentrarse en cerrar tratos en lugar de buscar prospectos. ¡Un cambio total!",
+        name: "Sven Schelenz",
+        company: "Liberty4visions"
       }
     ],
 
@@ -400,40 +431,6 @@ const translations = {
     ourEmail: "Nuestro Email",
     location: "Córdoba, Argentina",
 
-    companies: "Empresas con las que trabajamos"
+    companies: "Empresas que confiaron en nosotros"
   }
-};
-
-type Language = 'en' | 'es';
-
-type TranslationValue = string | string[] | { title: string; description: string }[] | any;
-
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: (key: TranslationKey) => TranslationValue;
-}
-
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('es');
-
-  const t = (key: TranslationKey): TranslationValue => {
-    return translations[language][key];
-  };
-
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
 };
