@@ -7,11 +7,11 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const TestimonialsSection = () => {
   const { t, language } = useLanguage();
 
-  // Reorder testimonial images to match the new order
+  // Define the image paths for each testimonial in the order they appear in testimonials
   const testimonialImages = [
     "/lovable-uploads/0127d549-a27b-4615-a14b-04a704216a08.png",   // Richi Barret
-    "/lovable-uploads/c0a35f54-9e4e-44c4-81f2-b13dc57f24db.png",   // Sven Schelenz
     "/lovable-uploads/1e06f8bb-6162-420f-8ce0-ad3da5692d4d.png",   // Carmela Rodriguez
+    "/lovable-uploads/c0a35f54-9e4e-44c4-81f2-b13dc57f24db.png"    // Sven Schelenz
   ];
 
   return (
