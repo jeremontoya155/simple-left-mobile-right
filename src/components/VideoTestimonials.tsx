@@ -22,22 +22,22 @@ const VideoTestimonials = () => {
   const { language } = useLanguage();
   
   return (
-    <section className="py-12 px-4 bg-gradient-to-b from-gray-50 to-emerald-50">
-      <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+    <section className="py-8 bg-gradient-to-b from-gray-50 to-emerald-50">
+      <div className="container mx-auto px-0">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center px-4">
           {language === 'es' ? "Experiencias" : "Experiences"}
         </h2>
-        <Carousel className="max-w-7xl mx-auto">
+        <Carousel className="w-full">
           <CarouselContent>
             {videos.map((video, i) => (
-              <CarouselItem key={i} className="md:basis-1/3 lg:basis-1/3">
-                <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-black p-2">
+              <CarouselItem key={i} className="basis-full md:basis-1/2 lg:basis-1/2">
+                <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-black">
                   <iframe
                     src={video.src}
                     title={video.name}
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className="w-full h-40 transform transition-transform duration-300 group-hover:scale-105 rounded-lg"
+                    className="w-full h-[70vh] md:h-[80vh] transform transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
               </CarouselItem>
