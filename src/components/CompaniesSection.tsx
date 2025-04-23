@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
@@ -16,7 +16,7 @@ const COMPANY_IMAGES = [
 
 const CompaniesSection = () => {
   const { t } = useLanguage();
-  const autoplayPlugin = Autoplay({ delay: 2000, stopOnInteraction: false });
+  const autoplayPlugin = React.useMemo(() => Autoplay({ delay: 2000, stopOnInteraction: false }), []);
 
   return (
     <section className="bg-white py-12">
