@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -95,11 +94,18 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				"slide-arrow": {
+					"0%": { transform: "translateX(200px)", opacity: "0" },
+					"20%": { transform: "translateX(0)", opacity: "1" },
+					"80%": { transform: "translateX(-200px)", opacity: "1" },
+					"100%": { transform: "translateX(-300px)", opacity: "0" }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				"slide-arrow": "slide-arrow 2s ease-in-out"
 			}
 		}
 	},
