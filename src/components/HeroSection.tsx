@@ -14,19 +14,19 @@ const HeroSection = () => {
           <div className="mb-6">
             <h1 className="text-6xl md:text-7xl font-bold leading-tight">
               <span className="block mb-4 animate-color-change">
-                {language === 'es' ? "Bienvenido a Hunter:" : "Welcome to Hunter:"}
+                {language === 'es' ? "Bienvenido a Hunter!" : "Welcome to Hunter!"}
               </span>
               <span className="text-4xl md:text-5xl block mt-4">
                 {language === 'es' 
-                  ? "donde no esperamos oportunidades las creamos y las cazamos" 
-                  : "where we don't wait for opportunities we create and hunt them"}
+                  ? "Donde No Esperamos Oportunidades Las Creamos y Las Cazamos" 
+                  : "Where We Don't Wait For Opportunities We Create And Hunt Them"}
               </span>
             </h1>
           </div>
           <p className="text-2xl md:text-3xl mb-6 font-semibold uppercase">
             {language === 'es' 
-              ? "Tu meta nuestro blanco" 
-              : "Your goals our target"}
+              ? "Tu meta, nuestro blanco" 
+              : "Your goals, our target"}
           </p>
           <div className="relative">
             <div className="flex flex-col sm:flex-row gap-4">

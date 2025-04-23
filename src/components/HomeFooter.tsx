@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Instagram, Facebook, Linkedin, Twitter, Mail, Phone, MapPin, ChevronRight } from "lucide-react";
 import LogoWhite from "@/components/ui/LogoWhite";
@@ -34,11 +33,11 @@ const HomeFooter = () => {
             <div className="space-y-2">
               <div className="flex items-start">
                 <Mail className="w-5 h-5 mr-3 mt-1 text-emerald-500" />
-                <p>hunter.iogonzalo@gmail.com</p>
+                <p>ai.huntecorp@gmail.com</p>
               </div>
               <div className="flex items-start">
                 <Phone className="w-5 h-5 mr-3 mt-1 text-emerald-500" />
-                <p>+54 351 123 4567</p>
+                <p>+14244134628</p>
               </div>
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 mt-1 text-emerald-500" />

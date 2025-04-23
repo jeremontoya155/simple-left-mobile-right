@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import HomeHeader from "@/components/HomeHeader";
 import HeroSection from "@/components/HeroSection";
@@ -16,7 +15,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleEmailRequest = (subject: string) => {
     const email = "hunter.iogonzalo@gmail.com";
@@ -25,7 +24,7 @@ const Index = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-emerald-700 via-teal-700 to-emerald-900"> {/* Extended green gradient background */}
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-emerald-700 via-teal-700 to-emerald-900">
       <header className="sticky top-0 z-50">
         <HomeHeader mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       </header>
@@ -39,12 +38,12 @@ const Index = () => {
       <FAQSection />
       <section className="py-16 px-4 bg-transparent text-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('startNow') as string}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{language === 'es' ? 'Suscribirse a novedades' : 'Subscribe to news'}</h2>
           <Button
             className="bg-white text-black hover:bg-emerald-100 px-8 py-6 text-lg group"
-            onClick={() => handleEmailRequest("Start Now Request from Hunter AI Website")}
+            onClick={() => handleEmailRequest("Subscribe Request from Hunter AI Website")}
           >
-            {t('startNow') as string}
+            {language === 'es' ? 'Suscribirse a novedades' : 'Subscribe to news'}
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
@@ -55,4 +54,3 @@ const Index = () => {
 };
 
 export default Index;
-
