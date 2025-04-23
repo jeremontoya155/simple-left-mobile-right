@@ -11,16 +11,18 @@ const HeroSection = () => {
     <section className="relative bg-gradient-to-br from-emerald-700 via-teal-700 to-emerald-900 text-white py-20 px-4 border-b border-emerald-200" style={{ fontFamily: 'Poppins, Arial, sans-serif' }}>
       <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-6">
         <div className="max-w-xl">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight drop-shadow-lg">
-            <span className="inline-block transition-all duration-300 hover:scale-110 hover:text-emerald-300">
-              {language === 'es' ? "Bienvenido a Hunter: " : "Welcome to Hunter: "}
-            </span>
-            <span>
-              {language === 'es' 
-                ? "donde no esperamos oportunidades las creamos y las cazamos" 
-                : "where we don't wait for opportunities we create and hunt them"}
-            </span>
-          </h1>
+          <div className="mb-6">
+            <h1 className="text-6xl md:text-7xl font-bold leading-tight">
+              <span className="block mb-4 animate-color-change">
+                {language === 'es' ? "Bienvenido a Hunter:" : "Welcome to Hunter:"}
+              </span>
+              <span className="text-4xl md:text-5xl block mt-4">
+                {language === 'es' 
+                  ? "donde no esperamos oportunidades las creamos y las cazamos" 
+                  : "where we don't wait for opportunities we create and hunt them"}
+              </span>
+            </h1>
+          </div>
           <p className="text-2xl md:text-3xl mb-6 font-semibold uppercase">
             {language === 'es' 
               ? "Tu meta nuestro blanco" 
