@@ -7,11 +7,11 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const TestimonialsSection = () => {
   const { t, language } = useLanguage();
 
-  // Corrected order: Richi, Sven, Carmela with correct images
+  // Define the image paths for each testimonial in the order they appear in testimonials
   const testimonialImages = [
     "/lovable-uploads/0127d549-a27b-4615-a14b-04a704216a08.png",   // Richi Barret
-    "/lovable-uploads/f6386996-3b0a-492f-9b99-685be919da92.png",   // Sven Schelenz (corrected image)
-    "/lovable-uploads/934748dc-1ef6-4358-b48f-08dcf47c217e.png"    // Carmela Rodriguez (corrected image)
+    "/lovable-uploads/1e06f8bb-6162-420f-8ce0-ad3da5692d4d.png",   // Carmela Rodriguez
+    "/lovable-uploads/c0a35f54-9e4e-44c4-81f2-b13dc57f24db.png"    // Sven Schelenz
   ];
 
   return (
@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
           {language === 'es' ? "Testimonios" : "Testimonials"}
         </h2>
-        <Carousel className="max-w-4xl mx-auto">
+        <Carousel className="max-w-5xl mx-auto">
           <CarouselContent>
             {(t('testimonialsItems') as any[]).map((testimonial, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">

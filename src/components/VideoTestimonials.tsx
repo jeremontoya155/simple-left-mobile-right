@@ -27,17 +27,17 @@ const VideoTestimonials = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
           {language === 'es' ? "Experiencias" : "Experiences"}
         </h2>
-        <Carousel className="max-w-3xl mx-auto">
+        <Carousel className="max-w-5xl mx-auto">
           <CarouselContent>
             {videos.map((video, i) => (
               <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/2">
-                <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-black aspect-[9/16] group p-1">
+                <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-black aspect-video group p-2">
                   <iframe
                     src={video.src}
                     title={video.name}
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className="w-full h-full transform transition-transform duration-300 group-hover:scale-105 rounded-lg"
+                    className="w-full h-48 md:h-64 transform transition-transform duration-300 group-hover:scale-105 rounded-lg"
                   />
                 </div>
               </CarouselItem>
@@ -54,3 +54,4 @@ const VideoTestimonials = () => {
 };
 
 export default VideoTestimonials;
+
