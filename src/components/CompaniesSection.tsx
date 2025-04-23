@@ -1,17 +1,15 @@
-
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
 const COMPANY_IMAGES = [
-  "/lovable-uploads/9b2f7fd7-f636-4aa9-ba88-3de17e4eb57b.png", // CPG Recruitment
-  "/lovable-uploads/7f42dc7d-2ea7-4a08-9116-54bb60befb14.png", // Lucky 8
-  "/lovable-uploads/7c1d344c-64b1-4a71-8c6d-83188c7345a1.png", // The Digital CEO Accelerator
-  "/lovable-uploads/8f4a2922-db12-46fc-b423-d9df8c999bf4.png", // New VM Logo
+  "/lovable-uploads/c28dbb0b-9f98-47a5-94a9-caa93f4defec.png", // Print a Feel
+  "/lovable-uploads/678cc131-1981-4e22-81c3-ef30ce39f8d0.png", // VM Black
+  "/lovable-uploads/762edc4b-b892-4268-aa49-c79112676997.png", // VM Gold
+  "/lovable-uploads/39568798-630a-4327-8fc2-45f6a1dc5971.png", // LR
   "/lovable-uploads/e0906a3c-5141-4088-afb2-60391c99bc22.png", // Innotion Holdings
-  "/lovable-uploads/7ef59f57-c969-43b6-81ef-bead4c296b77.png", // VR Logo
-  "/lovable-uploads/fc458b6a-fc50-4bdd-8013-e45159a6559a.png", // LR Logo
+  "/lovable-uploads/7c1d344c-64b1-4a71-8c6d-83188c7345a1.png", // The Digital CEO Accelerator
 ];
 
 const CompaniesSection = () => {
