@@ -7,7 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const TestimonialsSection = () => {
   const { t, language } = useLanguage();
 
-  // Reordered testimonial images to match new order: Richi, Sven, Carmela
+  // Corrected order: Richi, Sven, Carmela
   const testimonialImages = [
     "/lovable-uploads/0127d549-a27b-4615-a14b-04a704216a08.png",   // Richi Barret
     "/lovable-uploads/c0a35f54-9e4e-44c4-81f2-b13dc57f24db.png",   // Sven Schelenz
@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
           {language === 'es' ? "Testimonios" : "Testimonials"}
         </h2>
-        <Carousel className="max-w-5xl mx-auto">
+        <Carousel className="max-w-4xl mx-auto">
           <CarouselContent>
             {(t('testimonialsItems') as any[]).map((testimonial, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">

@@ -27,7 +27,7 @@ const VideoTestimonials = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
           {language === 'es' ? "Experiencias" : "Experiences"}
         </h2>
-        <Carousel className="max-w-4xl mx-auto">
+        <Carousel className="max-w-3xl mx-auto">
           <CarouselContent>
             {videos.map((video, i) => (
               <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/2">
