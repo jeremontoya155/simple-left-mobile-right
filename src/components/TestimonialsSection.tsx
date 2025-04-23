@@ -9,9 +9,9 @@ const TestimonialsSection = () => {
 
   // Define the image paths for each testimonial
   const testimonialImages = [
-    "/lovable-uploads/b622bedd-38fd-4dd1-87c9-190a671633d6.png",   // Carmela Rodriguez
-    "/lovable-uploads/7876da0e-7964-4d97-8dd2-09c79c6ace36.png",   // Richi Barret
-    "/lovable-uploads/063b1481-a6fa-4a1c-a1eb-7f0484a25fbe.png"    // Sven Schelenz
+    "/lovable-uploads/1e06f8bb-6162-420f-8ce0-ad3da5692d4d.png",   // Carmela Rodriguez
+    "/lovable-uploads/c0a35f54-9e4e-44c4-81f2-b13dc57f24db.png",   // Richi Barret
+    "/lovable-uploads/0127d549-a27b-4615-a14b-04a704216a08.png"    // Sven Schelenz
   ];
 
   return (
@@ -42,4 +42,5 @@ const TestimonialsSection = () => {
     </section>
   );
 };
+
 export default TestimonialsSection;
