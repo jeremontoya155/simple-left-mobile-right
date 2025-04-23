@@ -22,28 +22,28 @@ const VideoTestimonials = () => {
   const { language } = useLanguage();
   
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-gray-50 to-emerald-50">
+    <section className="py-12 px-4 bg-gradient-to-b from-gray-50 to-emerald-50">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
           {language === 'es' ? "Experiencias" : "Experiences"}
         </h2>
-        <Carousel className="max-w-5xl mx-auto">
+        <Carousel className="max-w-7xl mx-auto">
           <CarouselContent>
             {videos.map((video, i) => (
-              <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/2">
-                <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-black aspect-video group p-2">
+              <CarouselItem key={i} className="md:basis-1/3 lg:basis-1/3">
+                <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-black p-2">
                   <iframe
                     src={video.src}
                     title={video.name}
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className="w-full h-48 md:h-64 transform transition-transform duration-300 group-hover:scale-105 rounded-lg"
+                    className="w-full h-40 transform transition-transform duration-300 group-hover:scale-105 rounded-lg"
                   />
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-center mt-6">
+          <div className="flex justify-center mt-4">
             <CarouselPrevious className="mr-2 bg-emerald-600 text-white hover:bg-emerald-700" />
             <CarouselNext className="ml-2 bg-emerald-600 text-white hover:bg-emerald-700" />
           </div>
@@ -54,4 +54,3 @@ const VideoTestimonials = () => {
 };
 
 export default VideoTestimonials;
-
