@@ -1,9 +1,9 @@
-
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LogoWhite from "@/components/ui/LogoWhite";
 import { useLanguage } from "@/contexts/LanguageContext";
+import SalesAnimation from "./SalesAnimation";
 
 const HeroSection = () => {
   const { language } = useLanguage();
@@ -42,8 +42,9 @@ const HeroSection = () => {
             </span>
           </div>
         </div>
-        <div className="flex-1 flex justify-center mb-12 md:mb-0">
+        <div className="flex-1 flex justify-center mb-12 md:mb-0 relative">
           <LogoWhite className="h-40 md:h-60 drop-shadow-xl" />
+          <SalesAnimation />
         </div>
       </div>
     </section>
