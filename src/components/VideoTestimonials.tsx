@@ -2,6 +2,7 @@
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const videos = [
   { 
@@ -20,6 +21,7 @@ const videos = [
 
 const VideoTestimonials = () => {
   const { language } = useLanguage();
+  const isMobile = useIsMobile();
   
   return (
     <section className="py-8 bg-gradient-to-b from-gray-50 to-emerald-50">
@@ -37,7 +39,7 @@ const VideoTestimonials = () => {
                     title={video.name}
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className="w-full h-[70vh] md:h-[80vh] object-cover"
+                    className={`w-full object-cover ${isMobile ? "h-[50vh]" : "h-[80vh]"}`}
                   />
                 </div>
               </CarouselItem>
