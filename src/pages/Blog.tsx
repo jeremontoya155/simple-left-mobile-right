@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import HomeHeader from '@/components/HomeHeader';
@@ -11,11 +10,11 @@ const blogPosts = [
   {
     title: {
       en: "How Hunter AI Transforms Lead Generation",
-      es: "Cómo Hunter AI Transforma la Generación de Leads"
+      es: "Como Hunter AI Transforma la Generacion de Leads"
     },
     description: {
-      en: "Discover how artificial intelligence can help you attract and convert more customers in a sustainable way.",
-      es: "Descubre cómo la inteligencia artificial puede ayudarte a atraer y convertir más clientes de manera sostenible."
+      en: "Discover how artificial intelligence can help you attract and convert more customers in a sustainable way",
+      es: "Descubre como la inteligencia artificial puede ayudarte a atraer y convertir mas clientes de manera sostenible"
     },
     image: "/lovable-uploads/22891c74-9cb1-4fd7-9b93-056b27e32be1.png",
     date: "2023-04-15",
@@ -98,8 +97,8 @@ const Blog = () => {
           </h1>
           <p className="text-lg text-center max-w-3xl mx-auto mb-12 text-gray-700">
             {language === 'es' 
-              ? 'Explore nuestros últimos artículos sobre inteligencia artificial, captación de clientes y estrategias de marketing avanzadas.' 
-              : 'Explore our latest articles on artificial intelligence, customer acquisition, and advanced marketing strategies.'}
+              ? 'Explora nuestros ultimos articulos sobre inteligencia artificial captacion de clientes y estrategias de marketing avanzadas' 
+              : 'Explore our latest articles on artificial intelligence customer acquisition and advanced marketing strategies'}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

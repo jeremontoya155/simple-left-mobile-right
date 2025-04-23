@@ -16,10 +16,10 @@ const FAQSection = () => {
           {(t('faqItems') as any[]).map((item, index) => (
             <AccordionItem key={index} value={`item-${index}`} className="border-b border-emerald-100">
               <AccordionTrigger className="text-lg font-medium hover:text-emerald-600 transition-colors py-4">
-                {item.question}
+                {item.question.replace(/[.-]/g, '')}
               </AccordionTrigger>
               <AccordionContent className="text-gray-700 pb-4 pr-6">
-                {item.answer}
+                {item.answer.replace(/[.-]/g, '')}
               </AccordionContent>
             </AccordionItem>
           ))}

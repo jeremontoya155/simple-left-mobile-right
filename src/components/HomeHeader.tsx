@@ -24,7 +24,7 @@ const HomeHeader = ({ mobileMenuOpen, setMobileMenuOpen }: HomeHeaderProps) => {
           </Link>
           <nav className="hidden md:flex space-x-8">
             <Link to="/" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{t("home")}</Link>
-            <Link to="/#differentiators" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === "es" ? "¿Por qué Hunter?" : "Why Hunter?"}</Link>
+            <Link to="/#differentiators" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === "es" ? "Por que Hunter" : "Why Hunter"}</Link>
             <Link to="/#integrations" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === "es" ? "Integraciones" : "Integrations"}</Link>
             <Link to="/#process" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{t("howItWorks")}</Link>
             <Link to="/#plans" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{t("plans")}</Link>
@@ -40,7 +40,7 @@ const HomeHeader = ({ mobileMenuOpen, setMobileMenuOpen }: HomeHeaderProps) => {
             <button
               className="md:hidden p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={language === "es" ? "Abrir menú móvil" : "Open mobile menu"}
+              aria-label={language === "es" ? "Abrir menu movil" : "Open mobile menu"}
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -49,7 +49,7 @@ const HomeHeader = ({ mobileMenuOpen, setMobileMenuOpen }: HomeHeaderProps) => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white w-full py-4 flex flex-col text-black space-y-4 shadow mt-2 rounded-b-xl z-30">
             <Link to="/" className="font-medium">{t("home")}</Link>
-            <Link to="/#differentiators" className="font-medium">{language === "es" ? "¿Por qué Hunter?" : "Why Hunter?"}</Link>
+            <Link to="/#differentiators" className="font-medium">{language === "es" ? "Por que Hunter" : "Why Hunter"}</Link>
             <Link to="/#integrations" className="font-medium">{language === "es" ? "Integraciones" : "Integrations"}</Link>
             <Link to="/#process" className="font-medium">{t("howItWorks")}</Link>
             <Link to="/#plans" className="font-medium">{t("plans")}</Link>
