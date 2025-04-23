@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,7 +19,7 @@ const HeroSection = () => {
               </span>
               <span className="text-4xl md:text-5xl block mt-4">
                 {language === 'es' 
-                  ? "Donde No Esperamos Oportunidades Las Creamos y Las Cazamos" 
+                  ? "Donde no esperamos oportunidades las creamos y las cazamos" 
                   : "Where We Don't Wait For Opportunities We Create And Hunt Them"}
               </span>
             </h1>
@@ -50,7 +51,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="flex-1 flex justify-center mb-12 md:mb-0 relative">
-          <LogoWhite className="h-40 md:h-60 drop-shadow-xl" />
+          <LogoWhite className="h-40 md:h-60 drop-shadow-xl animate-pulse" />
           <SalesAnimation />
         </div>
       </div>

@@ -47,28 +47,28 @@ const HomeFooter = () => {
           </div>
           <div>
             <h3 className="text-lg font-bold mb-4">{t('quickLinks') as string}</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                  <ChevronRight className="w-4 h-4 mr-1 group-hover:translate-x-1 transition-transform" />
+                <a href="#" className="inline-flex items-center px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors text-gray-300 hover:text-white group">
+                  <ChevronRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
                   {t('privacyPolicy') as string}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                  <ChevronRight className="w-4 h-4 mr-1 group-hover:translate-x-1 transition-transform" />
+                <a href="#" className="inline-flex items-center px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors text-gray-300 hover:text-white group">
+                  <ChevronRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
                   {t('termsAndConditions') as string}
                 </a>
               </li>
               <li>
-                <a href="/blog" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                  <ChevronRight className="w-4 h-4 mr-1 group-hover:translate-x-1 transition-transform" />
+                <a href="/blog" className="inline-flex items-center px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors text-gray-300 hover:text-white group">
+                  <ChevronRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
                   Blog
                 </a>
               </li>
               <li>
-                <a href="#faq" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                  <ChevronRight className="w-4 h-4 mr-1 group-hover:translate-x-1 transition-transform" />
+                <a href="#faq" className="inline-flex items-center px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors text-gray-300 hover:text-white group">
+                  <ChevronRight className="w-4 h-4 mr-2 group-hover:translate-x-1 transition-transform" />
                   FAQ
                 </a>
               </li>
