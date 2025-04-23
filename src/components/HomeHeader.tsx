@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -24,7 +23,7 @@ const HomeHeader = ({ mobileMenuOpen, setMobileMenuOpen }: HomeHeaderProps) => {
           </Link>
           <nav className="hidden md:flex space-x-8">
             <Link to="/" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{t("home")}</Link>
-            <Link to="/#differentiators" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === "es" ? "Por que Hunter" : "Why Hunter"}</Link>
+            <Link to="/#differentiators" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === "es" ? "Sobre nosotros" : "About us"}</Link>
             <Link to="/#integrations" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{language === "es" ? "Integraciones" : "Integrations"}</Link>
             <Link to="/#process" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{t("howItWorks")}</Link>
             <Link to="/#plans" className="story-link text-black font-medium hover:text-emerald-700 transition-colors">{t("plans")}</Link>
@@ -49,7 +48,7 @@ const HomeHeader = ({ mobileMenuOpen, setMobileMenuOpen }: HomeHeaderProps) => {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white w-full py-4 flex flex-col text-black space-y-4 shadow mt-2 rounded-b-xl z-30">
             <Link to="/" className="font-medium">{t("home")}</Link>
-            <Link to="/#differentiators" className="font-medium">{language === "es" ? "Por que Hunter" : "Why Hunter"}</Link>
+            <Link to="/#differentiators" className="font-medium">{language === "es" ? "Sobre nosotros" : "About us"}</Link>
             <Link to="/#integrations" className="font-medium">{language === "es" ? "Integraciones" : "Integrations"}</Link>
             <Link to="/#process" className="font-medium">{t("howItWorks")}</Link>
             <Link to="/#plans" className="font-medium">{t("plans")}</Link>
