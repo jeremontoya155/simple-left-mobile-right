@@ -21,9 +21,6 @@ const TestimonialsSection = () => {
                   quote={testimonial.quote}
                   name={testimonial.name}
                   company={testimonial.company}
-                  plan={language === 'es' ? "Plan Premium" : "Premium Plan"}
-                  results={language === 'es' ? "Resultados increíbles" : "Amazing results"}
-                  rating={5}
                   image={index % 2 === 0 ? "/lovable-uploads/934748dc-1ef6-4358-b48f-08dcf47c217e.png" : "/lovable-uploads/0a2153e7-a94d-4b56-b0fb-a3f2406be70c.png"}
                 />
               </CarouselItem>
