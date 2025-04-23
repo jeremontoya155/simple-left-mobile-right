@@ -12,9 +12,14 @@ const HeroSection = () => {
       <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-6">
         <div className="max-w-xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight drop-shadow-lg">
-            {language === 'es' 
-              ? "Bienvenido a Hunter donde no esperamos oportunidades las creamos y las cazamos" 
-              : "Welcome to Hunter where we dont wait for opportunities we create and hunt them"}
+            <span className="inline-block transition-all duration-300 hover:scale-110 hover:text-emerald-300">
+              {language === 'es' ? "Bienvenido a Hunter: " : "Welcome to Hunter: "}
+            </span>
+            <span>
+              {language === 'es' 
+                ? "donde no esperamos oportunidades las creamos y las cazamos" 
+                : "where we don't wait for opportunities we create and hunt them"}
+            </span>
           </h1>
           <p className="text-2xl md:text-3xl mb-6 font-semibold uppercase">
             {language === 'es' 
