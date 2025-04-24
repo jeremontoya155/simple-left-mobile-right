@@ -178,27 +178,27 @@ export const translations: Translations = {
     processTitle: "Hunter AI Pro Process",
     processSteps: [
       {
-        title: "🧠 Specific Segmentation",
+        title: "Specific Segmentation",
         description: "Our system analyzes and detects potential leads based on predefined profiles and behaviors."
       },
       {
-        title: "💬 Automated Messages",
+        title: "Automated Messages",
         description: "Intelligent delivery of personalized messages based on the lead's profile and their stage in the funnel."
       },
       {
-        title: "🤖 Response System",
+        title: "Response System",
         description: "Automates communication flow with detected leads according to established parameters."
       },
       {
-        title: "🌐 Multichannel",
+        title: "Multichannel",
         description: "Integration with multiple platforms to maximize the reach and effectiveness of campaigns."
       },
       {
-        title: "🗂️ CRM Classification",
+        title: "CRM Classification",
         description: "Automatic categorization based on interactions, allowing optimization of sales strategy."
       },
       {
-        title: "📊 Tracking System",
+        title: "Tracking System",
         description: "Monitors the progression of each lead through the conversion funnel."
       }
     ]
@@ -374,27 +374,27 @@ export const translations: Translations = {
     processTitle: "Proceso Hunter AI Pro",
     processSteps: [
       {
-        title: "🧠 Segmentación Específica",
+        title: "Segmentación Específica",
         description: "Nuestro sistema analiza y detecta potenciales leads basados en perfiles y comportamientos predefinidos."
       },
       {
-        title: "💬 Mensajes Automatizados",
+        title: "Mensajes Automatizados",
         description: "Envío inteligente de mensajes personalizados según el perfil del lead y su etapa en el embudo."
       },
       {
-        title: "🤖 Sistema de Respuesta",
+        title: "Sistema de Respuesta",
         description: "Automatiza el flujo de comunicación con leads detectados según parámetros establecidos."
       },
       {
-        title: "🌐 Multicanal",
+        title: "Multicanal",
         description: "Integración con múltiples plataformas para maximizar el alcance y eficacia de las campañas."
       },
       {
-        title: "🗂️ Clasificación CRM",
+        title: "Clasificación CRM",
         description: "Categorización automática en base a interacciones, permitiendo optimizar la estrategia de ventas."
       },
       {
-        title: "📊 Sistema de Seguimiento",
+        title: "Sistema de Seguimiento",
         description: "Monitoriza la progresión de cada lead a través del embudo de conversión."
       }
     ]
