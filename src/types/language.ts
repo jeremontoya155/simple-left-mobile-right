@@ -57,7 +57,9 @@ export type TranslationKey =
   | 'quickLinks'
   | 'privacyPolicy'
   | 'termsAndConditions'
-  | 'companies';
+  | 'companies'
+  | 'processTitle'
+  | 'processSteps';
 
 export type Language = 'en' | 'es';
 
