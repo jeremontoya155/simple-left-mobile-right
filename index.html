@@ -18,6 +18,20 @@
     <meta property="og:title" content="Hunter Assistants - Automatización Inteligente" />
     <meta property="og:description" content="Automatiza tu proceso de prospección con tecnología innovadora y algoritmos complejos." />
     <meta property="og:type" content="website" />
+    
+    <!-- Ocultar marca de agua de Lovable -->
+    <style>
+      /* Estilos para ocultar la marca de agua de Lovable */
+      [id*="lovable-badge"],
+      [class*="lovable-badge"],
+      a[href*="lovable.dev"],
+      a[href*="lovable.app"] {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -26,4 +40,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
