@@ -1,0 +1,70 @@
+
+export type TranslationKey =
+  | 'home'
+  | 'about'
+  | 'products'
+  | 'contact'
+  | 'heroTitle'
+  | 'heroDescription'
+  | 'moreInfo'
+  | 'channelsTitle'
+  | 'softwareTitle'
+  | 'softwareDescription'
+  | 'functionalityTitle'
+  | 'functionalityPills'
+  | 'benefitsTitle'
+  | 'benefitBoxes'
+  | 'contactUs'
+  | 'forAnyQuestion'
+  | 'ourInstagram'
+  | 'ourEmail'
+  | 'location'
+  | 'features'
+  | 'plans'
+  | 'requestDemo'
+  | 'welcomeHunter'
+  | 'yourGoalsOurTarget'
+  | 'tryHunterNow'
+  | 'requestFreeDemo'
+  | 'whatIsHunterAI'
+  | 'whatIsHunterAIDesc'
+  | 'howItWorks'
+  | 'step1'
+  | 'step2'
+  | 'step3'
+  | 'step4'
+  | 'step1Desc'
+  | 'step2Desc'
+  | 'step3Desc'
+  | 'step4Desc'
+  | 'keyBenefits'
+  | 'benefit1'
+  | 'benefit2'
+  | 'benefit3'
+  | 'benefit4'
+  | 'testimonials'
+  | 'testimonialsItems'
+  | 'plansAndPricing'
+  | 'basicPlan'
+  | 'professionalPlan'
+  | 'businessPlan'
+  | 'choosePlan'
+  | 'faq'
+  | 'faqItems'
+  | 'finalCTA'
+  | 'startNow'
+  | 'contactInfo'
+  | 'quickLinks'
+  | 'privacyPolicy'
+  | 'termsAndConditions'
+  | 'companies';
+
+export type Language = 'en' | 'es';
+
+export type TranslationValue = string | string[] | { title: string; description: string }[] | any;
+
+export interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: TranslationKey) => TranslationValue;
+}
