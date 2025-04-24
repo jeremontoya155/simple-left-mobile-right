@@ -6,16 +6,16 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const videos = [
   { 
-    src: "https://www.youtube.com/embed/_yAuXNyMI34", 
-    name: "Sven" 
+    src: "https://www.youtube.com/embed/pNfUBh5NgNE", 
+    name: "Patricia" 
   },
   { 
-    src: "https://www.youtube.com/embed/NY-kRFbM6UM", 
+    src: "https://www.youtube.com/embed/iHVFIWiRvHU", 
     name: "Jemelin" 
   },
   { 
-    src: "https://www.youtube.com/embed/Nr7ugyI0OWc", 
-    name: "Patricia" 
+    src: "https://www.youtube.com/embed/Mbh3-tUcIdc", 
+    name: "Sven" 
   }
 ];
 
@@ -27,7 +27,7 @@ const VideoTestimonials = () => {
     <section className="py-8 bg-gradient-to-b from-gray-50 to-emerald-50">
       <div className="container mx-auto px-0">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center px-4">
-          {language === 'es' ? "Experiencias" : "Experiences"}
+          {language === 'es' ? "Ellos cazaron con nosotros" : "They hunted with us"}
         </h2>
         <Carousel className="w-full">
           <CarouselContent>
