@@ -6,6 +6,7 @@ import { translations } from '../translations';
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  // Cambiamos el estado inicial a 'en' en lugar de 'es'
   const [language, setLanguage] = useState<Language>('en');
 
   const t = (key: TranslationKey): TranslationValue => {
@@ -26,3 +27,4 @@ export const useLanguage = () => {
   }
   return context;
 };
+
